@@ -15,7 +15,7 @@ Juego de lucha entre alumnos y profesores del IES San Clemente
 
 
 
-## CLASES:
+## CLASES
 - una clase jugador y una clase enemigo ambas heredando de una clase "sprite"
 - ide a utilizar: eclipse
 - lenguaje: Java
@@ -25,3 +25,11 @@ Juego de lucha entre alumnos y profesores del IES San Clemente
 - Juan: investigar el multihilo
 - Elías: investigar los sprites
 - Julio: desarrollar las rutinas de los personajes (refactorizarlas, getters y setters, etc...)
+
+
+
+## TIPOS DE ATAQUES
+- Un ataque defensivo
+- Uno curativo
+- Un ataque estándar
+- Un ultimate que se vaya acumulando entre combates
