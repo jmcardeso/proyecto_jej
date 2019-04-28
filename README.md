@@ -1,7 +1,7 @@
 # Proyecto JEJ
 Juego de lucha entre alumnos y profesores del IES San Clemente
 
-- Crear un repo
+- Crear un repo :heavy_check_mark:
 - Centrarnos en la pantalla de lucha
 - Mirar a fondo el multihilo
 - Mirar sprites
