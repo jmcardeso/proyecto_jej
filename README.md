@@ -1,4 +1,4 @@
-# proyecto_jej
+# Proyecto JEJ
 Juego de lucha entre alumnos y profesores del IES San Clemente
 
 - Crear un repo
