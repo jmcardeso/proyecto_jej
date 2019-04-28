@@ -15,7 +15,7 @@ Juego de lucha entre alumnos y profesores del IES San Clemente
 
 
 
-CLASES:
+## CLASES:
 - una clase jugador y una clase enemigo ambas heredando de una clase "sprite"
 - ide a utilizar: eclipse
 - lenguaje: Java
