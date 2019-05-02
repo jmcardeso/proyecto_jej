@@ -1,0 +1,47 @@
+Personaje:
+nombre, salud, puntos
+puntos:
+	(dañor echo - daño recibido) * número de enemigos
+3 ataques(con diferentes nombres y diferentes daños) y un ultra
+pocion aumenta la vida que tienes:
+	Si tu vida esta entre el 70 % y el 100 %:
+	(vida actual * 0.25) + vida actual -> 25 % 
+	Si tu vida esta entre el 45 % y el 70 %:
+	(vida actual * 0.50) + vida actual -> 50 %
+	Si tu vida esta entre el 20 % y el 45 %:
+	(vida actual * 1) + vida actual -> 100 %
+	Si tu vida esta entre el 1 % y el 20 %:
+	(vida actual * 1.2) + vida actual -> 120 %
+
+Enemigos:
+nombre
+3 ataques(con diferentes nombres y diferentes daños) y un ultra
+pocion aumenta la vida que tienes:
+	Si tu vida esta entre el 70 % y el 100 %:
+	(vida actual * 0.25) + vida actual -> 25 % 
+	Si tu vida esta entre el 45 % y el 70 %:
+	(vida actual * 0.50) + vida actual -> 50 %
+	Si tu vida esta entre el 20 % y el 45 %:
+	(vida actual * 1) + vida actual -> 100 %
+	Si tu vida esta entre el 1 % y el 20 %:
+	(vida actual * 1.2) + vida actual -> 120 %
+6 enemigos(cada enemigo 1 metodo)
+
+Lucha:
+número aleatorio para eligir quien ataca primero
+cada personaje tiene tres ataques a elegir y un ultra
+turno 1(personaje):
+eliges un ataque
+número aleatorio para decidir:
+	ataque falla
+	ataque normal
+	critico
+barra para el ultra:
+	en funcion al daño recibido o echo
+turno 2 (enemigo)
+número aleatorio para elegir ataque
+número aleatorio para decidir:
+	ataque falla
+	ataque normal
+	critico
+ultra se activa cuando le queda poca vida
