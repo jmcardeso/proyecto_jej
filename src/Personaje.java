@@ -23,8 +23,8 @@ class Personaje{
 	//Metodo para almacenar los puntos logrados en la partida
 	//puntos:
 	//	(dañor echo - daño recibido) * número de enemigos
-	public int puntos(int dañoProducido, int dañoRecibido, int numeroEnemigos) {
-		puntos = numeroEnemigos * (dañoProducido - dañoRecibido);
+	public int puntos(int danoProducido, int danoRecibido, int numeroEnemigos) {
+		puntos = numeroEnemigos * (danoProducido - danoRecibido);
 		return puntos;
 	}
 	
