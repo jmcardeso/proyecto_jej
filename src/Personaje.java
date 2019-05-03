@@ -7,13 +7,6 @@ class Personaje{
 	private String nombre;
 	private int salud, ataque, defensa, pocion, ultra, power, puntos;
 	
-	//Metodo para establecer el nombre del personaje
-	public String nombre() {
-		System.out.println("Escribe el nombre del personaje:");
-		nombre = entradaTeclado.nextLine();
-		return nombre;
-	}
-	
 	//Metodo para establecer salud maxima
 	public int salud() {
 		salud = 200;
@@ -57,9 +50,21 @@ class Personaje{
 	}
 	
 	//Metodos de los ataques
-	public int ataque1() {return ataque;}
-	public int ataque2() {return ataque;}
-	public int ataque3() {return ataque;}
+	
+	public int ataque1() {
+		ataque = 50;
+		return ataque;
+	}
+	
+	public int ataque2() {
+		ataque = 75;
+		return ataque;
+	}
+	
+	public int ataque3() {
+		ataque = 100;
+		return ataque;
+	}
 	
 	//Metodo del ataque ultra
 	public int ultra() {return ultra;}
@@ -69,8 +74,16 @@ class Personaje{
 		return salud;
 	}
 	
+	public String getNombre() {
+		return nombre;
+	}
+	
 	//Setters
 	public void setSalud(int salud) {
 		this.salud = salud;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 }
