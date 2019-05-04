@@ -3,16 +3,6 @@ class Personaje{
 	private String nombre;
 	private int salud, ataque, defensa, pocion, ultra, power, puntos;
 	
-	//Metodo para establecer salud maxima
-	public int salud() {
-		
-		if(salud >= 200) {
-			salud = 200;
-		}else {
-			return salud;
-		}
-	}
-	
 	//Metodo para almacenar los puntos logrados en la partida
 	//puntos:
 	//	(dañor echo - daño recibido) * número de enemigos
@@ -86,7 +76,13 @@ class Personaje{
 	
 	//Setters
 	public void setSalud(int salud) {
-		this.salud = salud;
+		
+		//Establecemos un maximo permitido en la salud
+		if(salud <= this.salud) {
+			this.salud = salud;
+		}else {
+			this.salud = salud;
+		}
 	}
 
 	public void setNombre(String nombre) {

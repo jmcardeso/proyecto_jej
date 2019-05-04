@@ -3,20 +3,23 @@ import java.util.Scanner;
 class Lucha{
 	public static void main(String[] args) {
 		
-		//Creamos objetos
+		// Creamos objetos
 		Scanner sca = new Scanner(System.in);
 		Personaje prs = new Personaje();
 		
 		// Creamos varios contadores
-		int contadorEnemigo;
+		int contadorEnemigo, numero;
 		
-		//Variable para elegir opcion
+		// Variable para elegir opcion
 		int opcion;
 		
-		//Hacemos pruebas con varios parametros
-		int saludPersonaje, saludEnemigo, numero;
-		saludPersonaje = 100;
-		saludEnemigo = 120;
+		// Pruebas
+		int saludEnemigo = 500;
+		
+		// Creamos el personaje
+		System.out.println("Como te llamas:");
+		prs.setNombre(sca.nextLine());
+		prs.setSalud(500);
 		
 		while(true) {
 			
@@ -33,7 +36,7 @@ class Lucha{
 					System.out.printf("(1) Ataque 1 (2) Ataque 2 (3) Ataque 3===\n");
 					System.out.printf("(4) Ultra================================\n");
 					System.out.printf("(5) Poción===============================\n");
-					System.out.printf("Tu salud: %d=============================\n", saludPersonaje);
+					System.out.printf("Tu salud: %d=============================\n", prs.getSalud());
 				
 					numero = (int) (Math.random() * 100);
 				
@@ -45,7 +48,7 @@ class Lucha{
 						// Realiza el ataque 3
 					}
 				
-					if(saludPersonaje == 0){
+					if(prs.getSalud() == 0){
 						break;
 					}
 				
@@ -83,7 +86,7 @@ class Lucha{
 				System.out.println("Turno del personaje");
 			}
 			
-			if(saludPersonaje == 0 || saludEnemigo == 0){
+			if(prs.getSalud() == 0 || saludEnemigo == 0){
 				break;
 			}
 		}
