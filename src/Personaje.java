@@ -24,19 +24,19 @@ class Personaje{
 	//	(vida actual * 1) + vida actual -> 100 %
 	//	Si tu vida esta entre el 1 % y el 20 %:
 	//	(vida actual * 1.2) + vida actual -> 120 %
-	public int pocion() {
+	public void pocion(int salud) {
 		
-		if(salud >= salud * 0.70) {
-			salud = (salud * 0.25) + salud;
-		}else if (salud >= salud * 0.45) {
-			salud = (salud * 0.50) + salud;
-		}else if (salud >= salud * 0.20) {
-			salud = salud + salud;
+		if(salud >= 500 * 0.70) {
+			this.salud = (int) (Math.round(salud * 0.25 + salud));
+		}else if (salud >= 500 * 0.45) {
+			this.salud = (int) (Math.round(salud * 0.50 + salud));
+		}else if (salud >= 500 * 0.20) {
+			this.salud = salud + salud;
 		}else if (salud > 0) {
-			salud = (salud * 1.2) + salud;
+			this.salud = (int) (Math.round(salud * 1.2 + salud));
+		}else {
+			this.salud = 0;
 		}
-		
-		return salud;
 	}
 	
 	//Metodos de los ataques
@@ -76,7 +76,6 @@ class Personaje{
 	
 	//Setters
 	public void setSalud(int salud) {
-		
 		//Establecemos un maximo permitido en la salud
 		if(salud <= this.salud) {
 			this.salud = salud;

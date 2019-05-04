@@ -20,6 +20,12 @@ class Lucha{
 		System.out.println("Como te llamas:");
 		prs.setNombre(sca.nextLine());
 		prs.setSalud(500);
+		int danoProducido = 0, danoRecibido = 0;
+		prs.ataque1();
+		prs.ataque2();
+		prs.ataque3();
+		prs.ultra(danoRecibido, danoProducido);
+		prs.pocion(prs.getSalud());
 		
 		while(true) {
 			
