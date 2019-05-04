@@ -1,16 +1,16 @@
-import java.util.Scanner;
-
 class Personaje{
-	
-	Scanner entradaTeclado = new Scanner();
 	
 	private String nombre;
 	private int salud, ataque, defensa, pocion, ultra, power, puntos;
 	
 	//Metodo para establecer salud maxima
 	public int salud() {
-		salud = 200;
-		return salud;
+		
+		if(salud >= 200) {
+			salud = 200;
+		}else {
+			return salud;
+		}
 	}
 	
 	//Metodo para almacenar los puntos logrados en la partida
@@ -67,7 +67,13 @@ class Personaje{
 	}
 	
 	//Metodo del ataque ultra
-	public int ultra() {return ultra;}
+	public int ultra(int danoRecibido, int danoProducido) {
+		power = danoProducido + danoRecibido;
+		
+		if(power == 200) {
+			return ultra;
+		}
+	}
 	
 	//Getters
 	public int getSalud() {
