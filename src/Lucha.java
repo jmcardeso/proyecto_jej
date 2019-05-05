@@ -8,7 +8,7 @@ class Lucha{
 		Personaje prs = new Personaje();
 		
 		// Creamos varios contadores
-		int contadorEnemigo, numero;
+		int contadorEnemigo = 0, numero;
 		
 		// Variable para elegir opcion
 		int opcion;
@@ -44,14 +44,44 @@ class Lucha{
 					System.out.printf("(5) Poción===============================\n");
 					System.out.printf("Tu salud: %d=============================\n", prs.getSalud());
 				
-					numero = (int) (Math.random() * 100);
+					numero = (int) (Math.random() * 90);
 				
 					if(numero <= 30) {
+						
 						// Realiza el ataque 1
+						numero = (int) (Math.random() * 90);
+						
+						if(numero <= 30) {
+							System.out.println("Ataque fallido");
+						}else if (numero <= 60) {
+							//Ataque normal
+						}else {
+							System.out.println("Ataque critico");
+						}
 					}else if (numero <= 60) {
+						
 						// Realiza el ataque 2
-					}else if (numero <= 100) {
+						numero = (int) (Math.random() * 90);
+						
+						if(numero <= 30) {
+							System.out.println("Ataque fallido");
+						}else if (numero <= 60) {
+							//Ataque normal
+						}else {
+							System.out.println("Ataque critico");
+						}
+					}else if (numero <= 90) {
+						
 						// Realiza el ataque 3
+						numero = (int) (Math.random() * 90);
+						
+						if(numero <= 30) {
+							System.out.println("Ataque fallido");
+						}else if (numero <= 60) {
+							//Ataque normal
+						}else {
+							System.out.println("Ataque critico");
+						}
 					}
 				
 					if(prs.getSalud() == 0){
@@ -65,13 +95,56 @@ class Lucha{
 						opcion = sca.nextInt();
 				
 						if(opcion == 1) {
+							
 							// Realiza la acción (1)
+							numero = (int) (Math.random() * 90);
+							
+							if(numero <= 30) {
+								System.out.println("Ataque fallido");
+							}else if (numero <= 60) {
+								//Ataque normal
+								saludEnemigo = saludEnemigo - prs.ataque1();
+							}else {
+								System.out.println("Ataque critico");
+								saludEnemigo = saludEnemigo - (prs.ataque1() + 25);
+							}
 						}else if (opcion == 2) {
+							
 							// Realiza la acción (2)
+							numero = (int) (Math.random() * 90);
+							
+							if(numero <= 30) {
+								System.out.println("Ataque fallido");
+							}else if (numero <= 60) {
+								//Ataque normal
+								saludEnemigo = saludEnemigo - prs.ataque2();
+							}else {
+								System.out.println("Ataque critico");
+								saludEnemigo = saludEnemigo - (prs.ataque2() + 25);
+							}
 						}else if (opcion == 3) {
+							
 							// Realiza la acción (3)
+							numero = (int) (Math.random() * 90);
+							
+							if(numero <= 30) {
+								System.out.println("Ataque fallido");
+							}else if (numero <= 60) {
+								//Ataque normal
+								saludEnemigo = saludEnemigo - prs.ataque3();
+							}else {
+								System.out.println("Ataque critico");
+								saludEnemigo = saludEnemigo - (prs.ataque3() + 25);
+							}
 						}else if (opcion == 4) {
+							
 							// Realiza la acción (4)
+							numero = (int) (Math.random() * 100);
+							if(numero <= 20) {
+								System.out.println("Ataque critico fallido");
+							}else {
+								//Ataque critico
+							}
 						}else if (opcion == 5) {
 							// Realiza la acción (5)
 						}else {
@@ -92,9 +165,11 @@ class Lucha{
 				System.out.println("Turno del personaje");
 			}
 			
-			if(prs.getSalud() == 0 || saludEnemigo == 0){
+			if(prs.getSalud() == 0){
 				break;
 			}
+			
+			contadorEnemigo ++;
 		}
 		
 		System.out.println("Salimos del bucle");
