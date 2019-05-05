@@ -2,6 +2,7 @@ class Personaje{
 	
 	private String nombre;
 	private int salud, ataque, defensa, pocion, ultra, power, puntos;
+	int danoProducido, danoRecibido;
 	
 	//Metodo para almacenar los puntos logrados en la partida
 	//puntos:
@@ -57,12 +58,14 @@ class Personaje{
 	}
 	
 	//Metodo del ataque ultra
-	public int ultra(int danoRecibido, int danoProducido) {
+	public int ultra() {
 		power = danoProducido + danoRecibido;
 		
 		if(power == 200) {
-			return ultra;
+			
 		}
+		
+		return ataque;
 	}
 	
 	//Getters
@@ -72,6 +75,10 @@ class Personaje{
 	
 	public String getNombre() {
 		return nombre;
+	}
+	
+	public int getDanoRecibido() {
+		return danoRecibido;
 	}
 	
 	//Setters
@@ -86,5 +93,17 @@ class Personaje{
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+
+	public int getDanoProducido() {
+		return danoProducido;
+	}
+
+	public void setDanoProducido(int danoProducido) {
+		this.danoProducido = danoProducido;
+	}
+
+	public void setDanoRecibido(int danoRecibido) {
+		this.danoRecibido = danoRecibido;
 	}
 }
