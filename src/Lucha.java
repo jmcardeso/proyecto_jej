@@ -42,7 +42,7 @@ class Lucha{
 					System.out.printf("========================Vida de enemigo: %d\n", saludEnemigo);
 					System.out.println();
 					System.out.printf("(1) Ataque 1 (2) Ataque 2 (3) Ataque 3 (4) Ultra (5) Poción===\n");
-					System.out.printf("Vida de %s: %d=============================\n", prs.getSalud(), prs.getNombre());
+					System.out.printf("Vida de %s: %d====Power: %d=========================\n", prs.getNombre(), prs.getSalud(), prs.getPower());
 				
 					//Turno enemigo
 					numero = (int) (Math.random() * 90);
@@ -63,6 +63,7 @@ class Lucha{
 							prs.setDanoRecibido(puntos);
 							//Almacenar y aumentar el valor de power
 							prs.ultra();
+							puntos = 0;
 						}else {
 							//Asignar el daño recibido a una variable
 							puntos = prs.getSalud() - ataqueEnemigo + 25;
@@ -72,6 +73,7 @@ class Lucha{
 							prs.setDanoRecibido(puntos);
 							//Almacenar y aumentar el valor de power
 							prs.ultra();
+							puntos = 0;
 						}
 					}else if (numero <= 60) {
 						
@@ -89,6 +91,7 @@ class Lucha{
 							prs.setDanoRecibido(puntos);
 							//Almacenar y aumentar el valor de power
 							prs.ultra();
+							puntos = 0;
 						}else {
 							//Asignar el daño recibido a una variable
 							puntos = prs.getSalud() - ataqueEnemigo + 25;
@@ -98,6 +101,7 @@ class Lucha{
 							prs.setDanoRecibido(puntos);
 							//Almacenar y aumentar el valor de power
 							prs.ultra();
+							puntos = 0;
 						}
 					}else if (numero <= 90) {
 						
@@ -115,6 +119,7 @@ class Lucha{
 							prs.setDanoRecibido(puntos);
 							//Almacenar y aumentar el valor de power
 							prs.ultra();
+							puntos = 0;
 						}else {
 							//Asignar el daño recibido a una variable
 							puntos = prs.getSalud() - ataqueEnemigo + 25;
@@ -124,6 +129,7 @@ class Lucha{
 							prs.setDanoRecibido(puntos);
 							//Almacenar y aumentar el valor de power
 							prs.ultra();
+							puntos = 0;
 						}
 					}
 				
@@ -241,12 +247,10 @@ class Lucha{
 				//Una vez elegimos quien empieza se mantendra hasta que uno de los dos muera
 				while (true) {
 			
-					System.out.printf("========================Salud enemigo: %d\n", saludEnemigo);
+					System.out.printf("========================Vida de enemigo: %d\n", saludEnemigo);
 					System.out.println();
-					System.out.printf("(1) Ataque 1 (2) Ataque 2 (3) Ataque 3===\n");
-					System.out.printf("(4) Ultra================================\n");
-					System.out.printf("(5) Poción===============================\n");
-					System.out.printf("Tu salud: %d=============================\n", prs.getSalud());
+					System.out.printf("(1) Ataque 1 (2) Ataque 2 (3) Ataque 3 (4) Ultra (5) Poción===\n");
+					System.out.printf("Vida de %s: %d====Power: %d=========================\n", prs.getNombre(), prs.getSalud(), prs.getPower());
 					
 					//Turno personaje
 					//Quedar en bucle hasta elegir la opcion correcta
@@ -372,6 +376,7 @@ class Lucha{
 							prs.setDanoRecibido(puntos);
 							//Almacenar y aumentar el valor de power
 							prs.ultra();
+							puntos = 0;
 						}else {
 							//Asignar el daño recibido a una variable
 							puntos = prs.getSalud() - ataqueEnemigo + 25;
@@ -381,6 +386,7 @@ class Lucha{
 							prs.setDanoRecibido(puntos);
 							//Almacenar y aumentar el valor de power
 							prs.ultra();
+							puntos = 0;
 						}
 					}else if (numero <= 60) {
 						
@@ -398,6 +404,7 @@ class Lucha{
 							prs.setDanoRecibido(puntos);
 							//Almacenar y aumentar el valor de power
 							prs.ultra();
+							puntos = 0;
 						}else {
 							//Asignar el daño recibido a una variable
 							puntos = prs.getSalud() - ataqueEnemigo + 25;
@@ -407,6 +414,7 @@ class Lucha{
 							prs.setDanoRecibido(puntos);
 							//Almacenar y aumentar el valor de power
 							prs.ultra();
+							puntos = 0;
 						}
 					}else if (numero <= 90) {
 						
@@ -424,6 +432,7 @@ class Lucha{
 							prs.setDanoRecibido(puntos);
 							//Almacenar y aumentar el valor de power
 							prs.ultra();
+							puntos = 0;
 						}else {
 							//Asignar el daño recibido a una variable
 							puntos = prs.getSalud() - ataqueEnemigo + 25;
@@ -433,6 +442,7 @@ class Lucha{
 							prs.setDanoRecibido(puntos);
 							//Almacenar y aumentar el valor de power
 							prs.ultra();
+							puntos = 0;
 						}
 					}
 				
