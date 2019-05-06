@@ -2,7 +2,9 @@ class Personaje{
 	
 	private String nombre;
 	private int salud, ataque, defensa, pocion, ultra, power, puntos;
-	int danoProducido, danoRecibido;
+	int danoProducido, danoRecibido, sumaPro, sumaRec, pow;
+	int arrDanoProducido[] = new int[200];
+	int arrDanoRecibido[] = new int[200];
 	
 	//Metodo para almacenar los puntos logrados en la partida
 	//puntos:
@@ -59,13 +61,22 @@ class Personaje{
 	
 	//Metodo del ataque ultra
 	public int ultra() {
-		power = danoProducido + danoRecibido;
+		
+		for(int i = 0; i < arrDanoProducido.length; i++) {
+			sumaPro += arrDanoProducido[i];
+			sumaRec += arrDanoRecibido[i];
+		}
+		
+		power = sumaPro + sumaRec;
 		
 		if(power == 200) {
+			return power;
+		}else if (power > 200) {
+			pow = power - 200;
 			
 		}
 		
-		return ataque;
+		return 0;
 	}
 	
 	//Getters

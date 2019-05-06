@@ -25,7 +25,7 @@ class Lucha{
 		prs.ataque2();
 		prs.ataque3();
 		prs.ultra();
-		prs.pocion(prs.getSalud());
+		//prs.pocion(prs.getSalud());
 		prs.setDanoProducido(danoProducido);
 		prs.setDanoRecibido(danoRecibido);
 		
@@ -39,12 +39,10 @@ class Lucha{
 				//Una vez elegimos quien empieza se mantendra hasta que uno de los dos muera
 				while (true) {
 			
-					System.out.printf("========================Salud enemigo: %d\n", saludEnemigo);
+					System.out.printf("========================Vida de enemigo: %d\n", saludEnemigo);
 					System.out.println();
-					System.out.printf("(1) Ataque 1 (2) Ataque 2 (3) Ataque 3===\n");
-					System.out.printf("(4) Ultra================================\n");
-					System.out.printf("(5) Poción===============================\n");
-					System.out.printf("Tu salud: %d=============================\n", prs.getSalud());
+					System.out.printf("(1) Ataque 1 (2) Ataque 2 (3) Ataque 3 (4) Ultra (5) Poción===\n");
+					System.out.printf("Vida de %s: %d=============================\n", prs.getSalud(), prs.getNombre());
 				
 					//Turno enemigo
 					numero = (int) (Math.random() * 90);
