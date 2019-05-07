@@ -1,7 +1,8 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 class Lucha{
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException, InterruptedException {
 		
 		// Creamos objetos
 		Scanner sca = new Scanner(System.in);
@@ -9,7 +10,7 @@ class Lucha{
 		Terminal cmd = new Terminal();
 		
 		// Creamos varios contadores
-		int contadorEnemigo = 0, numero, puntos;
+		int contadorEnemigo = 0, numero;
 		
 		// Variable para elegir opcion
 		int opcion;
@@ -35,10 +36,12 @@ class Lucha{
 			//Generamos un número aleatorio
 			numero = (int) (Math.random() * 100);
 			
-			if(numero <= 90) {
+			if(numero <= 100) {
 				
 				//Una vez elegimos quien empieza se mantendra hasta que uno de los dos muera
 				while (true) {
+					
+					cmd.clearScreen();
 			
 					System.out.printf("========================Vida de enemigo: %d\n", saludEnemigo);
 					System.out.println();
@@ -55,26 +58,21 @@ class Lucha{
 						
 						if(numero <= 30) {
 							System.out.println("Enemigo fallo su ataque");
-						}else if (numero <= 60) {
-							//Asignar el daño recibido a una variable
-							puntos = prs.getSalud() - ataqueEnemigo;
+						}else if (numero <= 60) {							
 							//Ataque normal
-							prs.setSalud(puntos);
+							prs.setSalud(prs.getSalud() - ataqueEnemigo);
+							System.out.println("Enemigo hizo un ataque normal");
 							//Almacenar en la variable danoProducio el daño producido en esta acción
-							prs.setDanoRecibido(puntos);
-							//Almacenar y aumentar el valor de power
-							prs.power();
-							puntos = 0;
-						}else {
 							//Asignar el daño recibido a una variable
-							puntos = prs.getSalud() - ataqueEnemigo + 25;
-							System.out.println("Enemigo hizo un ataque critico");
-							prs.setSalud(puntos);
-							//Almacenar en la variable danoProducio el daño producido en esta acción
-							prs.setDanoRecibido(puntos);
-							//Almacenar y aumentar el valor de power
+							prs.setDanoRecibido(ataqueEnemigo);
 							prs.power();
-							puntos = 0;
+						}else {
+							System.out.println("Enemigo hizo un ataque critico");
+							prs.setSalud(prs.getSalud() - ataqueEnemigo);
+							//Almacenar en la variable danoProducio el daño producido en esta acción
+							//Asignar el daño recibido a una variable
+							prs.setDanoRecibido(ataqueEnemigo + 25);
+							prs.power();
 						}
 					}else if (numero <= 60) {
 						
@@ -84,25 +82,20 @@ class Lucha{
 						if(numero <= 30) {
 							System.out.println("Enemigo fallo su ataque");
 						}else if (numero <= 60) {
-							//Asignar el daño recibido a una variable
-							puntos = prs.getSalud() - ataqueEnemigo;
 							//Ataque normal
-							prs.setSalud(puntos);
+							prs.setSalud(prs.getSalud() - ataqueEnemigo);
+							System.out.println("Enemigo hizo un ataque normal");
 							//Almacenar en la variable danoProducio el daño producido en esta acción
-							prs.setDanoRecibido(puntos);
-							//Almacenar y aumentar el valor de power
-							prs.power();
-							puntos = 0;
-						}else {
 							//Asignar el daño recibido a una variable
-							puntos = prs.getSalud() - ataqueEnemigo + 25;
-							System.out.println("Enemigo hizo un ataque critico");
-							prs.setSalud(puntos);
-							//Almacenar en la variable danoProducio el daño producido en esta acción
-							prs.setDanoRecibido(puntos);
-							//Almacenar y aumentar el valor de power
+							prs.setDanoRecibido(ataqueEnemigo);
 							prs.power();
-							puntos = 0;
+						}else {
+							System.out.println("Enemigo hizo un ataque critico");
+							prs.setSalud(prs.getSalud() - ataqueEnemigo);
+							//Almacenar en la variable danoProducio el daño producido en esta acción
+							//Asignar el daño recibido a una variable
+							prs.setDanoRecibido(ataqueEnemigo + 25);
+							prs.power();
 						}
 					}else if (numero <= 90) {
 						
@@ -112,31 +105,34 @@ class Lucha{
 						if(numero <= 30) {
 							System.out.println("Enemigo fallo su ataque");
 						}else if (numero <= 60) {
-							//Asignar el daño recibido a una variable
-							puntos = prs.getSalud() - ataqueEnemigo;
 							//Ataque normal
-							prs.setSalud(puntos);
+							prs.setSalud(prs.getSalud() - ataqueEnemigo);
+							System.out.println("Enemigo hizo un ataque normal");
 							//Almacenar en la variable danoProducio el daño producido en esta acción
-							prs.setDanoRecibido(puntos);
-							//Almacenar y aumentar el valor de power
-							prs.power();
-							puntos = 0;
-						}else {
 							//Asignar el daño recibido a una variable
-							puntos = prs.getSalud() - ataqueEnemigo + 25;
-							System.out.println("Enemigo hizo un ataque critico");
-							prs.setSalud(puntos);
-							//Almacenar en la variable danoProducio el daño producido en esta acción
-							prs.setDanoRecibido(puntos);
-							//Almacenar y aumentar el valor de power
+							prs.setDanoRecibido(ataqueEnemigo);
 							prs.power();
-							puntos = 0;
+						}else {
+							System.out.println("Enemigo hizo un ataque critico");
+							prs.setSalud(prs.getSalud() - ataqueEnemigo);
+							//Almacenar en la variable danoProducio el daño producido en esta acción
+							//Asignar el daño recibido a una variable
+							prs.setDanoRecibido(ataqueEnemigo + 25);
+							prs.power();
 						}
 					}
 				
 					if(prs.getSalud() <= 0){
 						break;
 					}
+					
+					cmd.pressReturn(sca);
+					cmd.clearScreen();
+					
+					System.out.printf("========================Vida de enemigo: %d\n", saludEnemigo);
+					System.out.println();
+					System.out.printf("(1) Ataque 1 (2) Ataque 2 (3) Ataque 3 (4) Ultra (5) Poción===\n");
+					System.out.printf("Vida de %s: %d====Power: %d=========================\n", prs.getNombre(), prs.getSalud(), prs.getPower());
 					
 					//Turno personaje
 					//Quedar en bucle hasta elegir la opcion correcta
@@ -155,15 +151,16 @@ class Lucha{
 							}else if (numero <= 60) {
 								//Ataque normal
 								saludEnemigo = saludEnemigo - prs.ataque1();
+								System.out.printf("%s uso ataque normal", prs.getNombre());
 								//Almacenar en la variable danoProducio el daño producido en esta acción
-								prs.setDanoProducido(saludEnemigo - prs.ataque1());
+								prs.setDanoProducido(prs.ataque1());
 								//Almacenar y aumentar el valor de power
 								prs.power();
 							}else {
 								System.out.printf("%s hizo un ataque critico\n", prs.getNombre());
 								saludEnemigo = saludEnemigo - (prs.ataque1() + 25);
 								//Almacenar en la variable danoProducio el daño producido en esta acción
-								prs.setDanoProducido(saludEnemigo - prs.ataque1() + 25);
+								prs.setDanoProducido(prs.ataque1() + 25);
 								//Almacenar y aumentar el valor de power
 								prs.power();
 							}
@@ -177,15 +174,16 @@ class Lucha{
 							}else if (numero <= 60) {
 								//Ataque normal
 								saludEnemigo = saludEnemigo - prs.ataque2();
+								System.out.printf("%s uso ataque normal", prs.getNombre());
 								//Almacenar en la variable danoProducio el daño producido en esta acción
-								prs.setDanoProducido(saludEnemigo - prs.ataque2());
+								prs.setDanoProducido(prs.ataque2());
 								//Almacenar y aumentar el valor de power
 								prs.power();
 							}else {
 								System.out.printf("%s hizo un ataque critico\n", prs.getNombre());
 								saludEnemigo = saludEnemigo - (prs.ataque2() + 25);
 								//Almacenar en la variable danoProducio el daño producido en esta acción
-								prs.setDanoProducido(saludEnemigo - prs.ataque2() + 25);
+								prs.setDanoProducido(prs.ataque2() + 25);
 								//Almacenar y aumentar el valor de power
 								prs.power();
 							}
@@ -199,15 +197,16 @@ class Lucha{
 							}else if (numero <= 60) {
 								//Ataque normal
 								saludEnemigo = saludEnemigo - prs.ataque3();
+								System.out.printf("%s uso ataque normal", prs.getNombre());
 								//Almacenar en la variable danoProducio el daño producido en esta acción
-								prs.setDanoProducido(saludEnemigo - prs.ataque3());
+								prs.setDanoProducido(prs.ataque3());
 								//Almacenar y aumentar el valor de power
 								prs.power();
 							}else {
 								System.out.printf("%s hizo un ataque critico\n", prs.getNombre());
 								saludEnemigo = saludEnemigo - (prs.ataque3() + 25);
 								//Almacenar en la variable danoProducio el daño producido en esta acción
-								prs.setDanoProducido(saludEnemigo - prs.ataque3() + 25);
+								prs.setDanoProducido(prs.ataque3() + 25);
 								//Almacenar y aumentar el valor de power
 								prs.power();
 							}
@@ -248,6 +247,8 @@ class Lucha{
 				
 				//Una vez elegimos quien empieza se mantendra hasta que uno de los dos muera
 				while (true) {
+					
+					cmd.clearScreen();
 			
 					System.out.printf("========================Vida de enemigo: %d\n", saludEnemigo);
 					System.out.println();
@@ -271,17 +272,18 @@ class Lucha{
 							}else if (numero <= 60) {
 								//Ataque normal
 								saludEnemigo = saludEnemigo - prs.ataque1();
+								System.out.printf("%s uso ataque normal", prs.getNombre());
 								//Almacenar en la variable danoProducio el daño producido en esta acción
-								prs.setDanoProducido(saludEnemigo - prs.ataque1());
+								prs.setDanoProducido(prs.ataque1());
 								//Almacenar y aumentar el valor de power
-								prs.ultra();
+								prs.power();
 							}else {
 								System.out.printf("%s hizo un ataque critico\n", prs.getNombre());
 								saludEnemigo = saludEnemigo - (prs.ataque1() + 25);
 								//Almacenar en la variable danoProducio el daño producido en esta acción
-								prs.setDanoProducido(saludEnemigo - prs.ataque1() + 25);
+								prs.setDanoProducido(prs.ataque1() + 25);
 								//Almacenar y aumentar el valor de power
-								prs.ultra();
+								prs.power();
 							}
 						}else if (opcion == 2) {
 							
@@ -293,17 +295,18 @@ class Lucha{
 							}else if (numero <= 60) {
 								//Ataque normal
 								saludEnemigo = saludEnemigo - prs.ataque2();
+								System.out.printf("%s uso ataque normal", prs.getNombre());
 								//Almacenar en la variable danoProducio el daño producido en esta acción
-								prs.setDanoProducido(saludEnemigo - prs.ataque2());
+								prs.setDanoProducido(prs.ataque2());
 								//Almacenar y aumentar el valor de power
-								prs.ultra();
+								prs.power();
 							}else {
 								System.out.printf("%s hizo un ataque critico\n", prs.getNombre());
 								saludEnemigo = saludEnemigo - (prs.ataque2() + 25);
 								//Almacenar en la variable danoProducio el daño producido en esta acción
-								prs.setDanoProducido(saludEnemigo - prs.ataque2() + 25);
+								prs.setDanoProducido(prs.ataque2() + 25);
 								//Almacenar y aumentar el valor de power
-								prs.ultra();
+								prs.power();
 							}
 						}else if (opcion == 3) {
 							
@@ -315,17 +318,18 @@ class Lucha{
 							}else if (numero <= 60) {
 								//Ataque normal
 								saludEnemigo = saludEnemigo - prs.ataque3();
+								System.out.printf("%s uso ataque normal", prs.getNombre());
 								//Almacenar en la variable danoProducio el daño producido en esta acción
-								prs.setDanoProducido(saludEnemigo - prs.ataque3());
+								prs.setDanoProducido(prs.ataque3());
 								//Almacenar y aumentar el valor de power
-								prs.ultra();
+								prs.power();
 							}else {
 								System.out.printf("%s hizo un ataque critico\n", prs.getNombre());
 								saludEnemigo = saludEnemigo - (prs.ataque3() + 25);
 								//Almacenar en la variable danoProducio el daño producido en esta acción
-								prs.setDanoProducido(saludEnemigo - prs.ataque3() + 25);
+								prs.setDanoProducido(prs.ataque3() + 25);
 								//Almacenar y aumentar el valor de power
-								prs.ultra();
+								prs.power();
 							}
 						}else if (opcion == 4) {
 							
@@ -360,6 +364,14 @@ class Lucha{
 						break;
 					}
 					
+					cmd.pressReturn(sca);
+					cmd.clearScreen();
+					
+					System.out.printf("========================Vida de enemigo: %d\n", saludEnemigo);
+					System.out.println();
+					System.out.printf("(1) Ataque 1 (2) Ataque 2 (3) Ataque 3 (4) Ultra (5) Poción===\n");
+					System.out.printf("Vida de %s: %d====Power: %d=========================\n", prs.getNombre(), prs.getSalud(), prs.getPower());
+					
 					//Turno enemigo
 					numero = (int) (Math.random() * 90);
 				
@@ -371,25 +383,20 @@ class Lucha{
 						if(numero <= 30) {
 							System.out.println("Enemigo fallo su ataque");
 						}else if (numero <= 60) {
-							//Asignar el daño recibido a una variable
-							puntos = prs.getSalud() - ataqueEnemigo;
 							//Ataque normal
-							prs.setSalud(puntos);
+							prs.setSalud(prs.getSalud() - ataqueEnemigo);
+							System.out.println("Enemigo hizo un ataque normal");
 							//Almacenar en la variable danoProducio el daño producido en esta acción
-							prs.setDanoRecibido(puntos);
-							//Almacenar y aumentar el valor de power
-							prs.power();
-							puntos = 0;
-						}else {
 							//Asignar el daño recibido a una variable
-							puntos = prs.getSalud() - ataqueEnemigo + 25;
-							System.out.println("Enemigo hizo un ataque critico");
-							prs.setSalud(puntos);
-							//Almacenar en la variable danoProducio el daño producido en esta acción
-							prs.setDanoRecibido(puntos);
-							//Almacenar y aumentar el valor de power
+							prs.setDanoRecibido(ataqueEnemigo);
 							prs.power();
-							puntos = 0;
+						}else {
+							System.out.println("Enemigo hizo un ataque critico");
+							prs.setSalud(prs.getSalud() - ataqueEnemigo);
+							//Almacenar en la variable danoProducio el daño producido en esta acción
+							//Asignar el daño recibido a una variable
+							prs.setDanoRecibido(ataqueEnemigo + 25);
+							prs.power();
 						}
 					}else if (numero <= 60) {
 						
@@ -399,25 +406,20 @@ class Lucha{
 						if(numero <= 30) {
 							System.out.println("Enemigo fallo su ataque");
 						}else if (numero <= 60) {
-							//Asignar el daño recibido a una variable
-							puntos = prs.getSalud() - ataqueEnemigo;
 							//Ataque normal
-							prs.setSalud(puntos);
+							prs.setSalud(prs.getSalud() - ataqueEnemigo);
+							System.out.println("Enemigo hizo un ataque normal");
 							//Almacenar en la variable danoProducio el daño producido en esta acción
-							prs.setDanoRecibido(puntos);
-							//Almacenar y aumentar el valor de power
-							prs.power();
-							puntos = 0;
-						}else {
 							//Asignar el daño recibido a una variable
-							puntos = prs.getSalud() - ataqueEnemigo + 25;
-							System.out.println("Enemigo hizo un ataque critico");
-							prs.setSalud(puntos);
-							//Almacenar en la variable danoProducio el daño producido en esta acción
-							prs.setDanoRecibido(puntos);
-							//Almacenar y aumentar el valor de power
+							prs.setDanoRecibido(ataqueEnemigo);
 							prs.power();
-							puntos = 0;
+						}else {
+							System.out.println("Enemigo hizo un ataque critico");
+							prs.setSalud(prs.getSalud() - ataqueEnemigo);
+							//Almacenar en la variable danoProducio el daño producido en esta acción
+							//Asignar el daño recibido a una variable
+							prs.setDanoRecibido(ataqueEnemigo + 25);
+							prs.power();
 						}
 					}else if (numero <= 90) {
 						
@@ -427,25 +429,20 @@ class Lucha{
 						if(numero <= 30) {
 							System.out.println("Enemigo fallo su ataque");
 						}else if (numero <= 60) {
-							//Asignar el daño recibido a una variable
-							puntos = prs.getSalud() - ataqueEnemigo;
 							//Ataque normal
-							prs.setSalud(puntos);
+							prs.setSalud(prs.getSalud() - ataqueEnemigo);
+							System.out.println("Enemigo hizo un ataque normal");
 							//Almacenar en la variable danoProducio el daño producido en esta acción
-							prs.setDanoRecibido(puntos);
-							//Almacenar y aumentar el valor de power
-							prs.power();
-							puntos = 0;
-						}else {
 							//Asignar el daño recibido a una variable
-							puntos = prs.getSalud() - ataqueEnemigo + 25;
-							System.out.println("Enemigo hizo un ataque critico");
-							prs.setSalud(puntos);
-							//Almacenar en la variable danoProducio el daño producido en esta acción
-							prs.setDanoRecibido(puntos);
-							//Almacenar y aumentar el valor de power
+							prs.setDanoRecibido(ataqueEnemigo);
 							prs.power();
-							puntos = 0;
+						}else {
+							System.out.println("Enemigo hizo un ataque critico");
+							prs.setSalud(prs.getSalud() - ataqueEnemigo);
+							//Almacenar en la variable danoProducio el daño producido en esta acción
+							//Asignar el daño recibido a una variable
+							prs.setDanoRecibido(ataqueEnemigo + 25);
+							prs.power();
 						}
 					}
 				
