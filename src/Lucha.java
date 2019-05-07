@@ -6,6 +6,7 @@ class Lucha{
 		// Creamos objetos
 		Scanner sca = new Scanner(System.in);
 		Personaje prs = new Personaje();
+		Terminal cmd = new Terminal();
 		
 		// Creamos varios contadores
 		int contadorEnemigo = 0, numero, puntos;
