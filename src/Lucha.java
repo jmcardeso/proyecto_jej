@@ -232,6 +232,8 @@ class Lucha{
 							}
 						}else if (opcion == 5) {
 							// Realiza la acci�n (5)
+							System.out.printf("%s uso pocion\n", prs.getNombre());
+							prs.pocion(prs.getSalud());
 						}else {
 							System.out.println("Elige entre las opciones indicadas");
 						}

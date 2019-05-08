@@ -8,7 +8,13 @@ class Personaje{
 	//puntos:
 	//	(dano echo - dano recibido) * numero de enemigos
 	public int puntos(int numeroEnemigos) {
-		puntos = numeroEnemigos * (pro - rec);
+		
+		if(rec < 0) {
+			puntos = 0;
+		}else {
+			puntos = numeroEnemigos * (pro - rec);
+		}
+		
 		return puntos;
 	}
 	
@@ -27,7 +33,9 @@ class Personaje{
 	//	(vida actual * 1.2) + vida actual -> 120 %
 	public void pocion(int salud) {
 		
-		if(salud >= 500 * 0.70) {
+		if(this.salud >= 500) {
+			this.salud = 500;
+		}else if(salud >= 500 * 0.70) {
 			this.salud = (int) (Math.round(salud * 0.25 + salud));
 		}else if (salud >= 500 * 0.45) {
 			this.salud = (int) (Math.round(salud * 0.50 + salud));
@@ -101,12 +109,7 @@ class Personaje{
 	
 	//Setters
 	public void setSalud(int salud) {
-		//Establecemos un maximo permitido en la salud
-		if(salud <= this.salud) {
-			this.salud = salud;
-		}else {
-			this.salud = salud;
-		}
+		this.salud = salud;
 	}
 
 	public void setNombre(String nombre) {
