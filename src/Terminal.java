@@ -1,7 +1,7 @@
 import java.io.IOException;
 import java.util.Scanner;
 
-public class Terminal {
+class Terminal {
 	
 	public void clearScreen() throws IOException, InterruptedException {
 		
@@ -20,6 +20,12 @@ public class Terminal {
     public void pressReturn(Scanner scan) {
         
     	System.out.print("\n\nPulse RETURN para continuar.\n");
+        scan.nextLine();
+    }
+    
+    public void pressReturnBlanco(Scanner scan) {
+        
+    	System.out.print("\n\n \n");
         scan.nextLine();
     }
 }

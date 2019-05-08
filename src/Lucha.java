@@ -36,7 +36,7 @@ class Lucha{
 		
 		while(true) {
 			
-			//Generamos un nï¿½mero aleatorio
+			//Generamos un número aleatorio
 			numero = (int) (Math.random() * 100);
 			
 			if(numero <= 100) {
@@ -48,7 +48,7 @@ class Lucha{
 			
 					System.out.printf("========================Vida de enemigo: %d\n", saludEnemigo);
 					System.out.println();
-					System.out.printf("(1) Ataque 1 (2) Ataque 2 (3) Ataque 3 (4) Ultra (5) Pociï¿½n===\n");
+					System.out.printf("(1) Ataque 1 (2) Ataque 2 (3) Ataque 3 (4) Ultra (5) Pocion===\n");
 					System.out.printf("Vida de %s: %d====Power: %d=========================\n", prs.getNombre(), prs.getSalud(), prs.getPower());
 				
 					//Turno enemigo
@@ -134,14 +134,14 @@ class Lucha{
 					
 					System.out.printf("========================Vida de enemigo: %d\n", saludEnemigo);
 					System.out.println();
-					System.out.printf("(1) Ataque 1 (2) Ataque 2 (3) Ataque 3 (4) Ultra (5) Pociï¿½n===\n");
+					System.out.printf("(1) Ataque 1 (2) Ataque 2 (3) Ataque 3 (4) Ultra (5) Pocion===\n");
 					System.out.printf("Vida de %s: %d====Power: %d=========================\n", prs.getNombre(), prs.getSalud(), prs.getPower());
 					
 					//Turno personaje
 					//Quedar en bucle hasta elegir la opcion correcta
 					while (true) {
 					
-						System.out.println("Elige una acciï¿½n a realizar:");
+						System.out.println("Elige una accion a realizar:");
 						opcion = sca.nextInt();
 				
 						if(opcion == 1) {
@@ -170,7 +170,7 @@ class Lucha{
 							}
 						}else if (opcion == 2) {
 							
-							// Realiza la acciï¿½n (2)
+							// Realiza la accion (2)
 							numero = (int) (Math.random() * 90);
 							
 							if(numero <= 30) {
@@ -179,21 +179,21 @@ class Lucha{
 								//Ataque normal
 								saludEnemigo = saludEnemigo - prs.ataque2();
 								System.out.printf("%s uso ataque normal\n", prs.getNombre());
-								//Almacenar en la variable danoProducio el daï¿½o producido en esta acciï¿½n
+								//Almacenar en la variable danoProducio el dano producido en esta accion
 								prs.setDanoProducido(prs.ataque2());
 								//Almacenar y aumentar el valor de power
 								prs.power();
 							}else {
 								System.out.printf("%s hizo un ataque critico\n", prs.getNombre());
 								saludEnemigo = saludEnemigo - (prs.ataque2() + 25);
-								//Almacenar en la variable danoProducio el daï¿½o producido en esta acciï¿½n
+								//Almacenar en la variable danoProducio el dano producido en esta accion
 								prs.setDanoProducido(prs.ataque2() + 25);
 								//Almacenar y aumentar el valor de power
 								prs.power();
 							}
 						}else if (opcion == 3) {
 							
-							// Realiza la acciï¿½n (3)
+							// Realiza la accion (3)
 							numero = (int) (Math.random() * 90);
 							
 							if(numero <= 30) {
@@ -216,7 +216,7 @@ class Lucha{
 							}
 						}else if (opcion == 4) {
 							
-							// Realiza la acciï¿½n (4)
+							// Realiza la accion (4)
 							numero = (int) (Math.random() * 100);
 							if(numero <= 20) {
 								System.out.printf("%s fallo su ataque\n", prs.getNombre());
@@ -233,7 +233,7 @@ class Lucha{
 								}
 							}
 						}else if (opcion == 5) {
-							// Realiza la acciï¿½n (5)
+							// Realiza la accion (5)
 							System.out.printf("%s uso pocion\n", prs.getNombre());
 							saludPocion = prs.pocion(prs.getSalud());
 							if(prs.getSalud() + saludPocion > SALUD_MAX) {
@@ -254,7 +254,14 @@ class Lucha{
 						break;
 					}
 					
+					cmd.pressReturnBlanco(sca);
 					cmd.pressReturn(sca);
+					cmd.clearScreen();
+					
+					System.out.printf("========================Vida de enemigo: %d\n", saludEnemigo);
+					System.out.println();
+					System.out.printf("(1) Ataque 1 (2) Ataque 2 (3) Ataque 3 (4) Ultra (5) Pocion===\n");
+					System.out.printf("Vida de %s: %d====Power: %d=========================\n", prs.getNombre(), prs.getSalud(), prs.getPower());
 				}
 			}else {
 				
@@ -265,14 +272,14 @@ class Lucha{
 			
 					System.out.printf("========================Vida de enemigo: %d\n", saludEnemigo);
 					System.out.println();
-					System.out.printf("(1) Ataque 1 (2) Ataque 2 (3) Ataque 3 (4) Ultra (5) Pociï¿½n===\n");
+					System.out.printf("(1) Ataque 1 (2) Ataque 2 (3) Ataque 3 (4) Ultra (5) Pocion===\n");
 					System.out.printf("Vida de %s: %d====Power: %d=========================\n", prs.getNombre(), prs.getSalud(), prs.getPower());
 					
 					//Turno personaje
 					//Quedar en bucle hasta elegir la opcion correcta
 					while (true) {
 					
-						System.out.println("Elige una acciï¿½n a realizar:");
+						System.out.println("Elige una accion a realizar:");
 						opcion = sca.nextInt();
 				
 						if(opcion == 1) {
@@ -363,7 +370,14 @@ class Lucha{
 								}
 							}
 						}else if (opcion == 5) {
-							// Realiza la acciï¿½n (5)
+							// Realiza la accion (5)
+							System.out.printf("%s uso pocion\n", prs.getNombre());
+							saludPocion = prs.pocion(prs.getSalud());
+							if(prs.getSalud() + saludPocion > SALUD_MAX) {
+								prs.setSalud(SALUD_MAX);
+							}else {
+								prs.setSalud(prs.getSalud() + saludPocion);
+							}
 						}else {
 							System.out.println("Elige entre las opciones indicadas");
 						}
