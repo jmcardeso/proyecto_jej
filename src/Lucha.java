@@ -259,7 +259,7 @@ class Lucha{
 			}else {
 				
 				//Una vez elegimos quien empieza se mantendra hasta que uno de los dos muera
-				while (true) {
+				while (true) {System.out.printf("%s hizo un ataque critico\n", prs.getNombre());
 					
 					cmd.clearScreen();
 			
