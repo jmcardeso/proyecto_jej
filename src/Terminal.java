@@ -12,7 +12,8 @@ public class Terminal {
         if (os.contains("Windows")) {
         	new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
         }else {
-            Runtime.getRuntime().exec("clear");
+            System.out.println("\033[H\033[2J");
+            System.out.flush();
         }
 	}
 

@@ -152,7 +152,7 @@ class Lucha{
 							}else if (numero <= 60) {
 								//Ataque normal
 								saludEnemigo = saludEnemigo - prs.ataque1();
-								System.out.printf("%s uso ataque normal", prs.getNombre());
+								System.out.printf("%s uso ataque normal\n", prs.getNombre());
 								//Almacenar en la variable danoProducio el da�o producido en esta acci�n
 								prs.setDanoProducido(prs.ataque1());
 								//Almacenar y aumentar el valor de power
@@ -176,7 +176,7 @@ class Lucha{
 							}else if (numero <= 60) {
 								//Ataque normal
 								saludEnemigo = saludEnemigo - prs.ataque2();
-								System.out.printf("%s uso ataque normal", prs.getNombre());
+								System.out.printf("%s uso ataque normal\n", prs.getNombre());
 								//Almacenar en la variable danoProducio el da�o producido en esta acci�n
 								prs.setDanoProducido(prs.ataque2());
 								//Almacenar y aumentar el valor de power
@@ -199,7 +199,7 @@ class Lucha{
 							}else if (numero <= 60) {
 								//Ataque normal
 								saludEnemigo = saludEnemigo - prs.ataque3();
-								System.out.printf("%s uso ataque normal", prs.getNombre());
+								System.out.printf("%s uso ataque normal\n", prs.getNombre());
 								//Almacenar en la variable danoProducio el da�o producido en esta acci�n
 								prs.setDanoProducido(prs.ataque3());
 								//Almacenar y aumentar el valor de power
@@ -276,7 +276,7 @@ class Lucha{
 							}else if (numero <= 60) {
 								//Ataque normal
 								saludEnemigo = saludEnemigo - prs.ataque1();
-								System.out.printf("%s uso ataque normal", prs.getNombre());
+								System.out.printf("%s uso ataque normal\n", prs.getNombre());
 								//Almacenar en la variable danoProducio el da�o producido en esta acci�n
 								prs.setDanoProducido(prs.ataque1());
 								//Almacenar y aumentar el valor de power
@@ -299,7 +299,7 @@ class Lucha{
 							}else if (numero <= 60) {
 								//Ataque normal
 								saludEnemigo = saludEnemigo - prs.ataque2();
-								System.out.printf("%s uso ataque normal", prs.getNombre());
+								System.out.printf("%s uso ataque normal\n", prs.getNombre());
 								//Almacenar en la variable danoProducio el da�o producido en esta acci�n
 								prs.setDanoProducido(prs.ataque2());
 								//Almacenar y aumentar el valor de power
@@ -322,7 +322,7 @@ class Lucha{
 							}else if (numero <= 60) {
 								//Ataque normal
 								saludEnemigo = saludEnemigo - prs.ataque3();
-								System.out.printf("%s uso ataque normal", prs.getNombre());
+								System.out.printf("%s uso ataque normal\n", prs.getNombre());
 								//Almacenar en la variable danoProducio el da�o producido en esta acci�n
 								prs.setDanoProducido(prs.ataque3());
 								//Almacenar y aumentar el valor de power
@@ -456,13 +456,25 @@ class Lucha{
 				}
 			}
 			
-			if(prs.getSalud() <= 0 || saludEnemigo <= 0){
+			if(prs.getSalud() <= 0) {
 				break;
+			}else {
+				contadorEnemigo ++;
 			}
 			
-			contadorEnemigo ++;
+			if(saludEnemigo <= 0) {
+				break;
+			}
 		}
 		
 		System.out.println("salimos del bucle principal");
+		
+		if(prs.getSalud() <= 0) {
+			System.out.println("YOU LOSE");
+		}else {
+			System.out.println("YOU WIN");
+			System.out.printf("Puntos conseguidos: %d\n", prs.puntos(contadorEnemigo));
+			System.out.printf("Enemigos matados: %d\n", contadorEnemigo);
+		}
 	}
 }

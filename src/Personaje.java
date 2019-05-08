@@ -2,13 +2,13 @@ class Personaje{
 	
 	private String nombre;
 	private int salud, ataque, defensa, pocion, ultra, power, puntos;
-	int danoProducido = 0, danoRecibido = 0;
+	int danoProducido = 0, danoRecibido = 0, pro, rec;
 	
 	//Metodo para almacenar los puntos logrados en la partida
 	//puntos:
-	//	(dañor echo - daño recibido) * número de enemigos
-	public int puntos(int danoProducido, int danoRecibido, int numeroEnemigos) {
-		puntos = numeroEnemigos * (danoProducido - danoRecibido);
+	//	(dano echo - dano recibido) * numero de enemigos
+	public int puntos(int numeroEnemigos) {
+		puntos = numeroEnemigos * (pro - rec);
 		return puntos;
 	}
 	
@@ -73,7 +73,9 @@ class Personaje{
 	
 	//Metodo power
 	public void power() {
-		power += danoProducido + danoRecibido;
+		pro += danoProducido;
+		rec += danoRecibido;
+		power += danoProducido * 0.30 + danoRecibido * 0.15;
 	}
 	
 	//Getters
