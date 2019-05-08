@@ -3,10 +3,17 @@ class Personaje{
 	private String nombre;
 	private int salud, ataque, defensa, pocion, ultra, power, puntos;
 	int danoProducido = 0, danoRecibido = 0, pro, rec;
-	
+	//Constante salud
+	private static int SALUD_MAX = 500;
 	//Metodo para almacenar los puntos logrados en la partida
 	//puntos:
 	//	(dano echo - dano recibido) * numero de enemigos
+	
+	//Constructos clase personaje
+	Personaje(){
+		this.salud = SALUD_MAX;
+	}
+	
 	public int puntos(int numeroEnemigos) {
 		
 		if(rec < 0) {
@@ -31,20 +38,20 @@ class Personaje{
 	//	(vida actual * 1) + vida actual -> 100 %
 	//	Si tu vida esta entre el 1 % y el 20 %:
 	//	(vida actual * 1.2) + vida actual -> 120 %
-	public void pocion(int salud) {
+	public int pocion(int salud) {
 		
-		if(this.salud >= 500) {
-			this.salud = 500;
-		}else if(salud >= 500 * 0.70) {
-			this.salud = (int) (Math.round(salud * 0.25 + salud));
-		}else if (salud >= 500 * 0.45) {
-			this.salud = (int) (Math.round(salud * 0.50 + salud));
-		}else if (salud >= 500 * 0.20) {
-			this.salud = salud + salud;
+		if(this.salud >= SALUD_MAX) {
+			return SALUD_MAX;
+		}else if(salud >= SALUD_MAX * 0.70) {
+			return (int) (Math.round(salud * 0.25));
+		}else if (salud >= SALUD_MAX * 0.45) {
+			return (int) (Math.round(salud * 0.50));
+		}else if (salud >= SALUD_MAX * 0.20) {
+			return salud;
 		}else if (salud > 0) {
-			this.salud = (int) (Math.round(salud * 1.2 + salud));
+			return (int) (Math.round(salud * 1.2));
 		}else {
-			this.salud = 0;
+			return 0;
 		}
 	}
 	

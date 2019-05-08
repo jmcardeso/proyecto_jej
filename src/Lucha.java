@@ -4,6 +4,9 @@ import java.util.Scanner;
 class Lucha{
 	public static void main(String[] args) throws IOException, InterruptedException {
 		
+		//Constante salud
+		final int SALUD_MAX = 500;
+		
 		// Creamos objetos
 		Scanner sca = new Scanner(System.in);
 		Personaje prs = new Personaje();
@@ -13,7 +16,7 @@ class Lucha{
 		int contadorEnemigo = 0, numero;
 		
 		// Variable para elegir opcion
-		int opcion;
+		int opcion, saludPocion;
 		
 		// Pruebas
 		int saludEnemigo = 500, ataqueEnemigo = 100;
@@ -22,7 +25,6 @@ class Lucha{
 		// Creamos el personaje
 		System.out.println("Como te llamas:");
 		prs.setNombre(sca.nextLine());
-		prs.setSalud(500);
 		int danoProducido = 0, danoRecibido = 0;
 		prs.ataque1();
 		prs.ataque2();
@@ -233,7 +235,12 @@ class Lucha{
 						}else if (opcion == 5) {
 							// Realiza la acci�n (5)
 							System.out.printf("%s uso pocion\n", prs.getNombre());
-							prs.pocion(prs.getSalud());
+							saludPocion = prs.pocion(prs.getSalud());
+							if(prs.getSalud() + saludPocion > SALUD_MAX) {
+								prs.setSalud(SALUD_MAX);
+							}else {
+								prs.setSalud(prs.getSalud() + saludPocion);
+							}
 						}else {
 							System.out.println("Elige entre las opciones indicadas");
 						}
