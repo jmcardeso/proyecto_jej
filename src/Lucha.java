@@ -17,6 +17,7 @@ class Lucha{
 		
 		// Pruebas
 		int saludEnemigo = 500, ataqueEnemigo = 100;
+		String frase;
 		
 		// Creamos el personaje
 		System.out.println("Como te llamas:");
@@ -157,6 +158,7 @@ class Lucha{
 								//Almacenar y aumentar el valor de power
 								prs.power();
 							}else {
+								
 								System.out.printf("%s hizo un ataque critico\n", prs.getNombre());
 								saludEnemigo = saludEnemigo - (prs.ataque1() + 25);
 								//Almacenar en la variable danoProducio el daño producido en esta acción
@@ -242,6 +244,8 @@ class Lucha{
 					if(saludEnemigo <= 0){
 						break;
 					}
+					
+					cmd.pressReturn(sca);
 				}
 			}else {
 				
