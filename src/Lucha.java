@@ -10,7 +10,6 @@ class Lucha{
 		// Creamos objetos
 		Scanner sca = new Scanner(System.in);
 		Personaje prs = new Personaje();
-		Enemigo ene = new Enemigo();
 		Terminal cmd = new Terminal();
 		Texto txt = new Texto();
 		
@@ -34,7 +33,7 @@ class Lucha{
 			//Generamos un número aleatorio
 			numero = (int) (Math.random() * 100);
 			
-			ene.setNombre("Miquel");
+			
 			txt.enemigoMiguelSaludo();
 			cmd.pressReturn(sca);
 			

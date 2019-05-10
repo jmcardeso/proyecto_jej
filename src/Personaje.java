@@ -1,8 +1,9 @@
 class Personaje{
 	
-	private String nombre;
-	private int salud, ataque, defensa, pocion, ultra, power, puntos;
+	private String nombre, nombreAtaque1, nombreAtaque2, nombreAtaque3, nombreUltra;
+	private int saludAct, saludMax, danAtaq1, danAtaq2, danAtaq3, danUlt, defensa, pocion, ultra, power, puntos;
 	int danoProducido = 0, danoRecibido = 0, pro, rec;
+	
 	//Constante salud
 	private static int SALUD_MAX = 500;
 	//Metodo para almacenar los puntos logrados en la partida
@@ -10,16 +11,29 @@ class Personaje{
 	//	(dano echo - dano recibido) * numero de enemigos
 	
 	//Constructos clase personaje
-	Personaje(){
-		this.salud = SALUD_MAX;
+	Personaje(String nombre, int saludMax, int defensa, String nomAtaq1, int danAtaq1, String nomAtaq2,
+			int danAtaq2, String nomAtaq3, int danAtaq3, String nomUlt, int danUltra){
+		
+		this.nombre = nombre;
+		this.saludMax = saludMax;
+		this.saludAct = saludMax;
+		this.defensa = defensa;
+		this.nombreAtaque1 = nomAtaq1;
+		this.danAtaq1 = danAtaq1;
+		this.nombreAtaque2 = nomAtaq2;
+		this.danAtaq2 = danAtaq2;
+		this.nombreAtaque3 = nomAtaq3;
+		this.danAtaq3 = danAtaq3;
+		this.nombreUltra = nomUlt;
+		this.danUlt = danUltra;
 	}
 	
 	public int puntos(int numeroEnemigos) {
 		
-		if(rec < 0) {
-			puntos = 0;
-		}else {
+		if(pro > rec) {
 			puntos = numeroEnemigos * (pro - rec);
+		}else {
+			puntos = 0;
 		}
 		
 		return puntos;
@@ -40,37 +54,22 @@ class Personaje{
 	//	(vida actual * 1.2) + vida actual -> 120 %
 	public int pocion(int salud) {
 		
-		if(this.salud >= SALUD_MAX) {
-			return SALUD_MAX;
-		}else if(salud >= SALUD_MAX * 0.70) {
+		if(salud >= this.saludMax) {
+			return this.saludMax;
+		}else if(salud >= this.saludMax * 0.70) {
 			return (int) (Math.round(salud * 0.25));
-		}else if (salud >= SALUD_MAX * 0.45) {
+		}else if (salud >= this.saludMax * 0.45) {
 			return (int) (Math.round(salud * 0.50));
-		}else if (salud >= SALUD_MAX * 0.20) {
+		}else if (salud >= this.saludMax * 0.20) {
 			return salud;
 		}else if (salud > 0) {
 			return (int) (Math.round(salud * 1.2));
 		}else {
-			return 0;
+			return -1;
 		}
 	}
 	
-	//Metodos de los ataques
-	
-	public int ataque1() {
-		ataque = 50;
-		return ataque;
-	}
-	
-	public int ataque2() {
-		ataque = 75;
-		return ataque;
-	}
-	
-	public int ataque3() {
-		ataque = 100;
-		return ataque;
-	}
+	//Metodos de los ataques -> son getters y estan situados en la correspondiente seccion
 	
 	//Metodo del ataque ultra
 	public int ultra() {
@@ -94,8 +93,8 @@ class Personaje{
 	}
 	
 	//Getters
-	public int getSalud() {
-		return salud;
+	public int getSaludAct() {
+		return saludAct;
 	}
 	
 	public String getNombre() {
@@ -114,9 +113,25 @@ class Personaje{
 		return danoProducido;
 	}
 	
+	public int getDanAtaq1() {
+		return danAtaq1;
+	}
+
+	public int getDanAtaq2() {
+		return danAtaq2;
+	}
+
+	public int getDanAtaq3() {
+		return danAtaq3;
+	}
+
+	public int getDefensa() {
+		return defensa;
+	}
+
 	//Setters
-	public void setSalud(int salud) {
-		this.salud = salud;
+	public void setSaludAct(int saludAct) {
+		this.saludAct = saludAct;
 	}
 
 	public void setNombre(String nombre) {
@@ -130,4 +145,8 @@ class Personaje{
 	public void setDanoRecibido(int danoRecibido) {
 		this.danoRecibido = danoRecibido;
 	}
+
+	
+	
+	
 }
