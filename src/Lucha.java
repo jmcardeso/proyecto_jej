@@ -4,12 +4,11 @@ import java.util.Scanner;
 class Lucha{
 	public static void main(String[] args) throws IOException, InterruptedException {
 		
-		//Constante salud
+		// Constante salud
 		final int SALUD_MAX = 500;
 		
 		// Creamos objetos
 		Scanner sca = new Scanner(System.in);
-		Personaje prs = new Personaje();
 		Terminal cmd = new Terminal();
 		Texto txt = new Texto();
 		
@@ -19,13 +18,13 @@ class Lucha{
 		// Variable para elegir opcion
 		int opcion, saludPocion;
 		
-		// Pruebas
-		int saludEnemigo = 500, ataqueEnemigo = 100;
-		String frase;
+		// Creamos enemigos
+		Personaje enm1 = new Personaje("Miguel", 500, 100, "Aburrimiento", 50, "Sin luz", 75, "PDF", 100, "PC biejo", 200);
 		
 		// Creamos el personaje
-		System.out.println("Como te llamas:");
-		prs.setNombre(sca.nextLine());
+		System.out.println("Bienvenido, ¿como te llamas?");
+		String nombre = sca.nextLine();
+		Personaje jug = new Personaje(nombre, 500, 100, "Pereza", 75, "Movil", 100, "Google", 125, "stack overflow", 250);
 		int danoProducido = 0, danoRecibido = 0;
 	
 		while(true) {
@@ -33,21 +32,20 @@ class Lucha{
 			//Generamos un número aleatorio
 			numero = (int) (Math.random() * 100);
 			
-			
-			txt.enemigoMiguelSaludo();
 			cmd.pressReturn(sca);
 			
-			if(numero <= 0) {
+			if(numero <= 100) {
 				
 				//Una vez elegimos quien empieza se mantendra hasta que uno de los dos muera
 				while (true) {
 					
 					cmd.clearScreen();
 			
-					System.out.printf("========================Vida de enemigo: %d\n", saludEnemigo);
+					System.out.printf("=====================Enemigo: %s Salud: %d\n", enm1.getNombre(), enm1.getSaludAct());
 					System.out.println();
-					System.out.printf("(1) Ataque 1 (2) Ataque 2 (3) Ataque 3 (4) Ultra (5) Pocion===\n");
-					System.out.printf("Vida de %s: %d====Power: %d=========================\n", prs.getNombre(), prs.getSalud(), prs.getPower());
+					System.out.printf("(1) %s (2) %s (3) %s (4) %s (5) Pocion\n", jug.getNombreAtaque1(),
+							jug.getNombreAtaque2(), jug.getNombreAtaque3(), jug.getNombreUltra());
+					System.out.printf("Nombre: %s: Salud: %d Power: %d\n", jug.getNombre(), jug.getSaludAct(), jug.getPower());
 				
 					//Turno enemigo
 					numero = (int) (Math.random() * 90);
@@ -58,22 +56,22 @@ class Lucha{
 						numero = (int) (Math.random() * 90);
 						
 						if(numero <= 30) {
-							System.out.println("Enemigo fallo su ataque");
+							System.out.printf("%s fallo %s", enm1.getNombre(), enm1.getNombreAtaque1());
 						}else if (numero <= 60) {							
 							//Ataque normal
-							prs.setSalud(prs.getSalud() - ataqueEnemigo);
-							System.out.println("Enemigo hizo un ataque normal");
+							jug.setSaludAct(jug.getSaludAct() - enm1.getDanAtaq1());
+							System.out.printf("%s realizo ataque %s", enm1.getNombre(), enm1.getNombreAtaque1());
 							//Almacenar en la variable danoProducio el dano producido en esta accion
 							//Asignar el dano recibido a una variable
-							prs.setDanoRecibido(ataqueEnemigo);
-							prs.power();
+							jug.setDanoRecibido(enm1.getDanAtaq1());
+							jug.power();
 						}else {
-							System.out.println("Enemigo hizo un ataque critico");
-							prs.setSalud(prs.getSalud() - (ataqueEnemigo + 25));
+							System.out.printf("%s realizo ataque %s y fue critico", enm1.getNombre(), enm1.getNombreAtaque1());
+							jug.setSaludAct(jug.getSaludAct() - (enm1.getDanAtaq1() + 25));
 							//Almacenar en la variable danoProducio el dano producido en esta accion
 							//Asignar el dano recibido a una variable
-							prs.setDanoRecibido(ataqueEnemigo + 25);
-							prs.power();
+							jug.setDanoRecibido(enm1.getDanAtaq1() + 25);
+							jug.power();
 						}
 					}else if (numero <= 60) {
 						

@@ -129,6 +129,22 @@ class Personaje{
 		return defensa;
 	}
 
+	public String getNombreAtaque1() {
+		return nombreAtaque1;
+	}
+
+	public String getNombreAtaque2() {
+		return nombreAtaque2;
+	}
+
+	public String getNombreAtaque3() {
+		return nombreAtaque3;
+	}
+
+	public String getNombreUltra() {
+		return nombreUltra;
+	}
+
 	//Setters
 	public void setSaludAct(int saludAct) {
 		this.saludAct = saludAct;
