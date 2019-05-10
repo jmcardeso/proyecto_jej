@@ -41,7 +41,7 @@ class Lucha{
 					
 					cmd.clearScreen();
 			
-					System.out.printf("=====================Enemigo: %s Salud: %d\n", enm1.getNombre(), enm1.getSaludAct());
+					System.out.printf("================================Enemigo: %s Salud: %d\n", enm1.getNombre(), enm1.getSaludAct());
 					System.out.println();
 					System.out.printf("(1) %s (2) %s (3) %s (4) %s (5) Pocion\n", jug.getNombreAtaque1(),
 							jug.getNombreAtaque2(), jug.getNombreAtaque3(), jug.getNombreUltra());
@@ -130,10 +130,11 @@ class Lucha{
 					cmd.pressReturn(sca);
 					cmd.clearScreen();
 					
-					System.out.printf("========================Vida de enemigo: %d\n", saludEnemigo);
+					System.out.printf("================================Enemigo: %s Salud: %d\n", enm1.getNombre(), enm1.getSaludAct());
 					System.out.println();
-					System.out.printf("(1) Ataque 1 (2) Ataque 2 (3) Ataque 3 (4) Ultra (5) Pocion===\n");
-					System.out.printf("Vida de %s: %d====Power: %d=========================\n", prs.getNombre(), prs.getSalud(), prs.getPower());
+					System.out.printf("(1) %s (2) %s (3) %s (4) %s (5) Pocion\n", jug.getNombreAtaque1(),
+							jug.getNombreAtaque2(), jug.getNombreAtaque3(), jug.getNombreUltra());
+					System.out.printf("Nombre: %s: Salud: %d Power: %d\n", jug.getNombre(), jug.getSaludAct(), jug.getPower());
 					
 					//Turno personaje
 					//Quedar en bucle hasta elegir la opcion correcta
@@ -257,10 +258,11 @@ class Lucha{
 					cmd.pressReturn(sca);
 					cmd.clearScreen();
 					
-					System.out.printf("========================Vida de enemigo: %d\n", saludEnemigo);
+					System.out.printf("================================Enemigo: %s Salud: %d\n", enm1.getNombre(), enm1.getSaludAct());
 					System.out.println();
-					System.out.printf("(1) Ataque 1 (2) Ataque 2 (3) Ataque 3 (4) Ultra (5) Pocion===\n");
-					System.out.printf("Vida de %s: %d====Power: %d=========================\n", prs.getNombre(), prs.getSalud(), prs.getPower());
+					System.out.printf("(1) %s (2) %s (3) %s (4) %s (5) Pocion\n", jug.getNombreAtaque1(),
+							jug.getNombreAtaque2(), jug.getNombreAtaque3(), jug.getNombreUltra());
+					System.out.printf("Nombre: %s: Salud: %d Power: %d\n", jug.getNombre(), jug.getSaludAct(), jug.getPower());
 				}
 			}else {
 				
@@ -269,10 +271,11 @@ class Lucha{
 					
 					cmd.clearScreen();
 			
-					System.out.printf("========================Vida de enemigo: %d\n", saludEnemigo);
+					System.out.printf("================================Enemigo: %s Salud: %d\n", enm1.getNombre(), enm1.getSaludAct());
 					System.out.println();
-					System.out.printf("(1) Ataque 1 (2) Ataque 2 (3) Ataque 3 (4) Ultra (5) Pocion===\n");
-					System.out.printf("Vida de %s: %d====Power: %d=========================\n", prs.getNombre(), prs.getSalud(), prs.getPower());
+					System.out.printf("(1) %s (2) %s (3) %s (4) %s (5) Pocion\n", jug.getNombreAtaque1(),
+							jug.getNombreAtaque2(), jug.getNombreAtaque3(), jug.getNombreUltra());
+					System.out.printf("Nombre: %s: Salud: %d Power: %d\n", jug.getNombre(), jug.getSaludAct(), jug.getPower());
 					
 					//Turno personaje
 					//Quedar en bucle hasta elegir la opcion correcta
@@ -395,10 +398,11 @@ class Lucha{
 					cmd.pressReturn(sca);
 					cmd.clearScreen();
 					
-					System.out.printf("========================Vida de enemigo: %d\n", saludEnemigo);
+					System.out.printf("================================Enemigo: %s Salud: %d\n", enm1.getNombre(), enm1.getSaludAct());
 					System.out.println();
-					System.out.printf("(1) Ataque 1 (2) Ataque 2 (3) Ataque 3 (4) Ultra (5) Poci�n===\n");
-					System.out.printf("Vida de %s: %d====Power: %d=========================\n", prs.getNombre(), prs.getSalud(), prs.getPower());
+					System.out.printf("(1) %s (2) %s (3) %s (4) %s (5) Pocion\n", jug.getNombreAtaque1(),
+							jug.getNombreAtaque2(), jug.getNombreAtaque3(), jug.getNombreUltra());
+					System.out.printf("Nombre: %s: Salud: %d Power: %d\n", jug.getNombre(), jug.getSaludAct(), jug.getPower());
 					
 					//Turno enemigo
 					numero = (int) (Math.random() * 90);
@@ -482,10 +486,11 @@ class Lucha{
 					cmd.pressReturn(sca);
 					cmd.clearScreen();
 					
-					System.out.printf("========================Vida de enemigo: %d\n", saludEnemigo);
+					System.out.printf("================================Enemigo: %s Salud: %d\n", enm1.getNombre(), enm1.getSaludAct());
 					System.out.println();
-					System.out.printf("(1) Ataque 1 (2) Ataque 2 (3) Ataque 3 (4) Ultra (5) Pocion===\n");
-					System.out.printf("Vida de %s: %d====Power: %d=========================\n", prs.getNombre(), prs.getSalud(), prs.getPower());
+					System.out.printf("(1) %s (2) %s (3) %s (4) %s (5) Pocion\n", jug.getNombreAtaque1(),
+							jug.getNombreAtaque2(), jug.getNombreAtaque3(), jug.getNombreUltra());
+					System.out.printf("Nombre: %s: Salud: %d Power: %d\n", jug.getNombre(), jug.getSaludAct(), jug.getPower());
 				}
 			}
 			
