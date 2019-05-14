@@ -22,7 +22,7 @@ class Lucha{
 		Personaje enm1 = new Personaje("Miguel", 500, 100, "Aburrimiento", 50, "Sin luz", 75, "PDF", 100, "PC biejo", 200);
 		
 		// Creamos el personaje
-		System.out.println("Bienvenido, �como te llamas?");
+		System.out.println("Bienvenido, ¿como te llamas?");
 		String nombre = sca.nextLine();
 		Personaje jug = new Personaje(nombre, 500, 100, "Pereza", 75, "Movil", 100, "Google", 125, "stack overflow", 250);
 		int danoProducido = 0, danoRecibido = 0;

@@ -149,10 +149,6 @@ class Personaje{
 	public void setSaludAct(int saludAct) {
 		this.saludAct = saludAct;
 	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
 	
 	public void setDanoProducido(int danoProducido) {
 		this.danoProducido = danoProducido;
