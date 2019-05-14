@@ -2,7 +2,7 @@ class Personaje{
 	
 	private String nombre, nombreAtaque1, nombreAtaque2, nombreAtaque3, nombreUltra;
 	private int saludAct, saludMax, danAtaq1, danAtaq2, danAtaq3, danUlt, defensa, pocion, ultra, power, puntos;
-	int danoProducido = 0, danoRecibido = 0, pro, rec;
+	int danoProducido = 0, danoRecibido = 0, pro, rec, numero;
 	
 	//Constante salud
 	private static int SALUD_MAX = 500;
@@ -69,7 +69,87 @@ class Personaje{
 		}
 	}
 	
-	//Metodos de los ataques -> son getters y estan situados en la correspondiente seccion
+	//Metodos de los ataques
+	
+	//Ataques de enemigos, hay un porcentaje de acierto entre un ataque fallido, normal o critico dado por un numero random
+	public void ataqueEnemigoUno(String nombreEne, String nombreAtaUnoEne, int saludActJug, int danoAtaqUnoEn) {
+		numero = (int) (Math.random() * 100);
+		
+		if(numero <= 30) {
+			//Ataque fallido
+			System.out.printf("%s fallo %s\n", nombreEne, nombreAtaUnoEne);
+		}else if (numero <= 60) {							
+			//Ataque normal
+			this.saludAct = saludAct - danoAtaqUnoEn;//tiene que hacer referencia a la salud actual del jugador¿?
+			System.out.printf("%s realizo ataque %s\n", nombreEne, nombreAtaUnoEne);
+			this.danoRecibido = danoAtaqUnoEn;
+			power();
+		}else {
+			//Ataque critico
+			System.out.printf("%s realizo ataque %s y fue critico\n", nombreEne, nombreAtaUnoEne);
+			saludActJug = saludActJug - (danoAtaqUnoEn + 25);
+			this.danoRecibido = danoAtaqUnoEn + 25;
+			power();
+		}
+	}
+	
+	public void ataqueEnemigoDos(String nombreEne, String nombreAtaDosEne, int saludActJug, int danoAtaqDosEn) {}
+	
+	public void ataqueEnemigoTres(String nombreEne, String nombreAtaDosEne, int saludActJug, int danoAtaqDosEn) {}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	//Metodo del ataque ultra
 	public int ultra() {
