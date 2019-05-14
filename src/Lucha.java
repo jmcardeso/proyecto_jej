@@ -10,7 +10,7 @@ class Lucha{
 		// Creamos objetos
 		Scanner sca = new Scanner(System.in);
 		Terminal cmd = new Terminal();
-		Texto txt = new Texto();
+		//Texto txt = new Texto();
 		
 		// Creamos varios contadores
 		int contadorEnemigo = 0, numero;
@@ -499,7 +499,7 @@ class Lucha{
 				System.out.printf("%s a ganado\n", enm1.getSaludAct());
 				break;
 			}else {
-				System.out.printf("%s a ganado\n", jug.getSaludAct());
+				System.out.printf("%s a ganado\n", jug.getNombre());
 				contadorEnemigo ++;
 			}
 			
