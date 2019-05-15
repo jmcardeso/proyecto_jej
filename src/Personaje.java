@@ -72,7 +72,7 @@ class Personaje{
 	//Metodos de los ataques
 	
 	//Ataques de enemigos, hay un porcentaje de acierto entre un ataque fallido, normal o critico dado por un numero random
-	public void ataqueEnemigoUno(String nombreEne, String nombreAtaUnoEne, int saludActJug, int danoAtaqUnoEn) {
+	public int ataqueEnemigoUno(String nombreEne, String nombreAtaUnoEne, int saludActJug, int danoAtaqUnoEn) {
 		numero = (int) (Math.random() * 100);
 		
 		if(numero <= 30) {
@@ -80,7 +80,7 @@ class Personaje{
 			System.out.printf("%s fallo %s\n", nombreEne, nombreAtaUnoEne);
 		}else if (numero <= 60) {							
 			//Ataque normal
-			this.saludAct = saludAct - danoAtaqUnoEn;//tiene que hacer referencia a la salud actual del jugador¿?
+			saludActJug = saludActJug - danoAtaqUnoEn;
 			System.out.printf("%s realizo ataque %s\n", nombreEne, nombreAtaUnoEne);
 			this.danoRecibido = danoAtaqUnoEn;
 			power();
@@ -91,11 +91,56 @@ class Personaje{
 			this.danoRecibido = danoAtaqUnoEn + 25;
 			power();
 		}
+		
+		return saludActJug;
 	}
 	
-	public void ataqueEnemigoDos(String nombreEne, String nombreAtaDosEne, int saludActJug, int danoAtaqDosEn) {}
+	public int ataqueEnemigoDos(String nombreEne, String nombreAtaDosEne, int saludActJug, int danoAtaqDosEn) {
+		
+		numero = (int) (Math.random() * 100);
+		
+		if(numero <= 30) {
+			//Ataque fallido
+			System.out.printf("%s fallo %s\n", nombreEne, nombreAtaDosEne);
+		}else if (numero <= 60) {
+			//Ataque normal
+			saludActJug = saludActJug - danoAtaqDosEn;
+			System.out.printf("%s realizo ataque %s\n", nombreEne, nombreAtaDosEne);
+			this.danoRecibido = danoAtaqDosEn;
+			power();
+		}else {
+			//Ataque critico
+			System.out.printf("%s realizo ataque %s y fue critico\n", nombreEne, nombreAtaDosEne);
+			saludActJug = saludActJug - (danoAtaqDosEn + 25);
+			this.danoRecibido = danoAtaqDosEn + 25;
+			power();
+		}
+		
+		return saludActJug;
+	}
 	
-	public void ataqueEnemigoTres(String nombreEne, String nombreAtaDosEne, int saludActJug, int danoAtaqDosEn) {}
+	public void ataqueEnemigoTres(String nombreEne, String nombreAtaDosEne, int saludActJug, int danoAtaqDosEn) {
+		numero = (int) (Math.random() * 90);
+		
+		if(numero <= 30) {
+			System.out.printf("%s fallo %s\n", enm1.getNombre(), enm1.getNombreAtaque1());
+		}else if (numero <= 60) {
+			//Ataque normal
+			jug.setSaludAct(jug.getSaludAct() - enm1.getDanAtaq3());
+			System.out.printf("%s realizo ataque %s\n", enm1.getNombre(), enm1.getNombreAtaque3());
+			//Almacenar en la variable danoProducio el dano producido en esta accion
+			//Asignar el dano recibido a una variable
+			jug.setDanoRecibido(enm1.getDanAtaq3());
+			jug.power();
+		}else {
+			System.out.printf("%s realizo ataque %s y fue critico\n", enm1.getNombre(), enm1.getNombreAtaque1());
+			jug.setSaludAct(jug.getSaludAct() - (enm1.getDanAtaq3() +25));
+			//Almacenar en la variable danoProducio el dano producido en esta accion
+			//Asignar el dano recibido a una variable
+			jug.setDanoRecibido(enm1.getDanAtaq3() + 25);
+			jug.power();
+		}
+	}
 	
 	
 	

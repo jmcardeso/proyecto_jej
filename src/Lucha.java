@@ -52,6 +52,9 @@ class Lucha{
 				
 					if(numero <= 30) {
 						
+						jug.setSaludAct(enm1.ataqueEnemigoUno(enm1.getNombre(), enm1.getNombreAtaque1(), jug.getSaludAct(), enm1.getDanAtaq1()));
+						
+						/*
 						// Realiza el ataque 1
 						numero = (int) (Math.random() * 90);
 						
@@ -72,9 +75,13 @@ class Lucha{
 							//Asignar el dano recibido a una variable
 							jug.setDanoRecibido(enm1.getDanAtaq1() + 25);
 							jug.power();
-						}
+						}*/
+						
 					}else if (numero <= 60) {
 						
+						jug.setSaludAct(enm1.ataqueEnemigoDos(enm1.getNombre(), enm1.getNombreAtaque2(), jug.getSaludAct(), enm1.getDanAtaq2()));
+						
+						/*
 						// Realiza el ataque 2
 						numero = (int) (Math.random() * 90);
 						
@@ -95,9 +102,12 @@ class Lucha{
 							//Asignar el dano recibido a una variable
 							jug.setDanoRecibido(enm1.getDanAtaq2() + 25);
 							jug.power();
-						}
+						}*/
 					}else if (numero <= 90) {
 						
+						jug.setSaludAct(enm1.ataqueEnemigoDos(enm1.getNombre(), enm1.getNombreAtaque2(), jug.getSaludAct(), enm1.getDanAtaq2()));
+						
+						/*
 						// Realiza el ataque 3
 						numero = (int) (Math.random() * 90);
 						
@@ -118,7 +128,7 @@ class Lucha{
 							//Asignar el dano recibido a una variable
 							jug.setDanoRecibido(enm1.getDanAtaq3() + 25);
 							jug.power();
-						}
+						}*/
 					}
 					
 					
