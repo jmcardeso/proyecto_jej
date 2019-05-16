@@ -12,6 +12,9 @@ class Lucha{
 		Terminal cmd = new Terminal();
 		//Texto txt = new Texto();
 		
+		// Creamos variable para controlar las salud actual
+		int mSaludJug, mSaludEnem;
+		
 		// Creamos varios contadores
 		int contadorEnemigo = 0, numero;
 		
@@ -52,87 +55,36 @@ class Lucha{
 				
 					if(numero <= 30) {
 						
+						mSaludJug = jug.getSaludAct();
+						
 						jug.setSaludAct(enm1.ataqueEnemigoUno(enm1.getNombre(), enm1.getNombreAtaque1(), jug.getSaludAct(), enm1.getDanAtaq1()));
 						
-						/*
-						// Realiza el ataque 1
-						numero = (int) (Math.random() * 90);
-						
-						if(numero <= 30) {
-							System.out.printf("%s fallo %s\n", enm1.getNombre(), enm1.getNombreAtaque1());
-						}else if (numero <= 60) {							
-							//Ataque normal
-							jug.setSaludAct(jug.getSaludAct() - enm1.getDanAtaq1());
-							System.out.printf("%s realizo ataque %s\n", enm1.getNombre(), enm1.getNombreAtaque1());
-							//Almacenar en la variable danoProducio el dano producido en esta accion
-							//Asignar el dano recibido a una variable
-							jug.setDanoRecibido(enm1.getDanAtaq1());
-							jug.power();
-						}else {
-							System.out.printf("%s realizo ataque %s y fue critico\n", enm1.getNombre(), enm1.getNombreAtaque1());
-							jug.setSaludAct(jug.getSaludAct() - (enm1.getDanAtaq1() + 25));
-							//Almacenar en la variable danoProducio el dano producido en esta accion
-							//Asignar el dano recibido a una variable
-							jug.setDanoRecibido(enm1.getDanAtaq1() + 25);
-							jug.power();
-						}*/
+						//cargamos el power del jugador
+						jug.setDanoRecibido(mSaludJug - jug.getSaludAct());
+						jug.power();
 						
 					}else if (numero <= 60) {
 						
+						mSaludJug = jug.getSaludAct();
+						
 						jug.setSaludAct(enm1.ataqueEnemigoDos(enm1.getNombre(), enm1.getNombreAtaque2(), jug.getSaludAct(), enm1.getDanAtaq2()));
 						
-						/*
-						// Realiza el ataque 2
-						numero = (int) (Math.random() * 90);
+						//cargamos el power del jugador
+						jug.setDanoRecibido(mSaludJug - jug.getSaludAct());
+						jug.power();
 						
-						if(numero <= 30) {
-							System.out.printf("%s fallo %s\n", enm1.getNombre(), enm1.getNombreAtaque1());
-						}else if (numero <= 60) {
-							//Ataque normal
-							jug.setSaludAct(jug.getSaludAct() - enm1.getDanAtaq2());
-							System.out.printf("%s realizo ataque %s\n", enm1.getNombre(), enm1.getNombreAtaque2());
-							//Almacenar en la variable danoProducio el dano producido en esta accion
-							//Asignar el dano recibido a una variable
-							jug.setDanoRecibido(enm1.getDanAtaq2());
-							jug.power();
-						}else {
-							System.out.printf("%s realizo ataque %s y fue critico\n", enm1.getNombre(), enm1.getNombreAtaque1());
-							jug.setSaludAct(jug.getSaludAct() - (enm1.getDanAtaq2() +25));
-							//Almacenar en la variable danoProducio el dano producido en esta accion
-							//Asignar el dano recibido a una variable
-							jug.setDanoRecibido(enm1.getDanAtaq2() + 25);
-							jug.power();
-						}*/
 					}else if (numero <= 90) {
 						
-						jug.setSaludAct(enm1.ataqueEnemigoDos(enm1.getNombre(), enm1.getNombreAtaque2(), jug.getSaludAct(), enm1.getDanAtaq2()));
+						mSaludJug = jug.getSaludAct();
 						
-						/*
-						// Realiza el ataque 3
-						numero = (int) (Math.random() * 90);
+						jug.setSaludAct(enm1.ataqueEnemigoTres(enm1.getNombre(), enm1.getNombreAtaque3(), jug.getSaludAct(), enm1.getDanAtaq3()));
 						
-						if(numero <= 30) {
-							System.out.printf("%s fallo %s\n", enm1.getNombre(), enm1.getNombreAtaque1());
-						}else if (numero <= 60) {
-							//Ataque normal
-							jug.setSaludAct(jug.getSaludAct() - enm1.getDanAtaq3());
-							System.out.printf("%s realizo ataque %s\n", enm1.getNombre(), enm1.getNombreAtaque3());
-							//Almacenar en la variable danoProducio el dano producido en esta accion
-							//Asignar el dano recibido a una variable
-							jug.setDanoRecibido(enm1.getDanAtaq3());
-							jug.power();
-						}else {
-							System.out.printf("%s realizo ataque %s y fue critico\n", enm1.getNombre(), enm1.getNombreAtaque1());
-							jug.setSaludAct(jug.getSaludAct() - (enm1.getDanAtaq3() +25));
-							//Almacenar en la variable danoProducio el dano producido en esta accion
-							//Asignar el dano recibido a una variable
-							jug.setDanoRecibido(enm1.getDanAtaq3() + 25);
-							jug.power();
-						}*/
+						//cargamos el power del jugador
+						jug.setDanoRecibido(mSaludJug - jug.getSaludAct());
+						jug.power();
+						
 					}
 					
-					
-				
 					if(jug.getSaludAct() <= 0){
 						break;
 					}
