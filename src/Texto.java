@@ -1,16 +1,12 @@
 class Texto {
 	
-	Personaje prs = new Personaje();
-	
-	// Pruebas
-	int saludEnemigo = 500, ataqueEnemigo = 100;
-	
-	public void menu() {
+	public void menu(String nomEnem, int salActEnem, String nomAtaUno, String nomAtaDos, 
+					String nomAtaTres, String nomAtaUlt, String nomJug, int salActJug, int power) {
 		
-		System.out.printf("========================Vida de enemigo: %d\n", saludEnemigo);
+		System.out.printf("================================Enemigo: %s Salud: %d\n", nomEnem, salActEnem);
 		System.out.println();
-		System.out.printf("(1) Ataque 1 (2) Ataque 2 (3) Ataque 3 (4) Ultra (5) Pocion===\n");
-		System.out.printf("Vida de %s: %d====Power: %d=========================\n", prs.getNombre(), prs.getSalud(), prs.getPower());
-		
+		System.out.printf("(1) %s (2) %s (3) %s (4) %s (5) Pocion\n", nomAtaUno, nomAtaDos, nomAtaTres, nomAtaUlt);
+		System.out.printf("Nombre: %s: Salud: %d Power: %d\n", nomJug, salActJug, power);
+		System.out.println();
 	}
 }

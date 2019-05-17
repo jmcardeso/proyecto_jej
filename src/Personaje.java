@@ -71,6 +71,78 @@ class Personaje{
 	
 	//Metodos de los ataques
 	
+	//Ataques del jugador, hay un porcentaje de acierto entre un ataque fallido, normal o critico dado por un numero random
+	public int ataqueJugadorUno(String nomJug, String nomAtaUno, int saludActEne, int danoAtaUno) {
+		numero = (int) (Math.random() * 100);
+		
+		if(numero <= 30) {
+			//Ataque fallido
+			System.out.printf("%s %s fallo %s\n", nomJug, nomAtaUno);
+		}else if (numero <= 60) {
+			//Ataque normal
+			saludActEne = saludActEne - danoAtaUno;
+			System.out.printf("%s realizo ataque %s\n", nomJug, nomAtaUno);
+		}else {
+			//Ataque critico
+			System.out.printf("%s realizo ataque %s y fue critico\n", nomJug, nomAtaUno);
+			saludActEne = saludActEne - (danoAtaUno + 25);
+		}
+		
+		return saludActEne;
+	}
+	
+	public int ataqueJugadorDos(String nomJug, String nomAtaDos, int saludActEne, int danoAtaDos) {
+		numero = (int) (Math.random() * 100);
+		
+		if(numero <= 30) {
+			//Ataque fallido
+			System.out.printf("%s %s fallo %s\n", nomJug, nomAtaDos);
+		}else if (numero <= 60) {
+			//Ataque normal
+			saludActEne = saludActEne - danoAtaDos;
+			System.out.printf("%s realizo ataque %s\n", nomJug, nomAtaDos);
+		}else {
+			//Ataque critico
+			System.out.printf("%s realizo ataque %s y fue critico\n", nomJug, nomAtaDos);
+			saludActEne = saludActEne - (danoAtaDos + 25);
+		}
+		
+		return saludActEne;
+	}
+	
+	public int ataqueJugadorTres(String nomJug, String nomAtaTres, int saludActEne, int danoAtaTres) {
+		numero = (int) (Math.random() * 100);
+		
+		if(numero <= 30) {
+			//Ataque fallido
+			System.out.printf("%s %s fallo %s\n", nomJug, nomAtaTres);
+		}else if (numero <= 60) {
+			//Ataque normal
+			saludActEne = saludActEne - danoAtaTres;
+			System.out.printf("%s realizo ataque %s\n", nomJug, nomAtaTres);
+		}else {
+			//Ataque critico
+			System.out.printf("%s realizo ataque %s y fue critico\n", nomJug, nomAtaTres);
+			saludActEne = saludActEne - (danoAtaTres + 25);
+		}
+		
+		return saludActEne;
+	}
+	
+	public int ataqueJugadorUltra(String nomJug, String nomAtaUltra, int saludActEne, int danoAtaUltra) {
+		numero = (int) (Math.random() * 100);
+		if(numero <= 20) {
+			//Ataque fallido
+			System.out.printf("%s fallo %s ultra\n", nomJug, nomAtaUltra);
+		}else {
+			//Ataque ultra
+			System.out.printf("%s hizo un ataque ultra\n", nomJug);
+			saludActEne = saludActEne - danoAtaUltra;
+		}
+		
+		return saludActEne;
+	}
+	
 	//Ataques de enemigos, hay un porcentaje de acierto entre un ataque fallido, normal o critico dado por un numero random
 	public int ataqueEnemigoUno(String nombreEne, String nombreAtaUnoEne, int saludActJug, int danoAtaqUnoEn) {
 		numero = (int) (Math.random() * 100);
@@ -129,60 +201,6 @@ class Personaje{
 		
 		return saludActJug;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	//Metodo del ataque ultra
 	public int ultra() {
@@ -256,6 +274,10 @@ class Personaje{
 
 	public String getNombreUltra() {
 		return nombreUltra;
+	}
+
+	public int getDanUlt() {
+		return danUlt;
 	}
 
 	//Setters
