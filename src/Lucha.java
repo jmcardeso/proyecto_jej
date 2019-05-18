@@ -64,6 +64,7 @@ class Lucha{
 						//cargamos el power del jugador
 						jug.setDanoRecibido(mSaludJug - jug.getSaludAct());
 						jug.power();
+						//cargamos el power del enemigo
 						
 					}else if (numero <= 60) {
 						
@@ -74,6 +75,7 @@ class Lucha{
 						//cargamos el power del jugador
 						jug.setDanoRecibido(mSaludJug - jug.getSaludAct());
 						jug.power();
+						//cargamos el power del enemigo
 						
 					}else if (numero <= 90) {
 						
@@ -84,7 +86,15 @@ class Lucha{
 						//cargamos el power del jugador
 						jug.setDanoRecibido(mSaludJug - jug.getSaludAct());
 						jug.power();
+						//cargamos el power del enemigo
 						
+					}else if(numero <= 95) {
+						if (enm1.getPower() >= 200) {
+							jug.setSaludAct(enm1.ataqueEnemigoUltra(enm1.getNombre(), enm1.getNombreUltra(), jug.getSaludAct(), enm1.getDanUlt()));
+							enm1.ultra();
+						}else {
+							
+						}
 					}
 					
 					if(jug.getSaludAct() <= 0){
@@ -108,39 +118,6 @@ class Lucha{
 					
 						System.out.printf("%s elige una accion a realizar:\n", jug.getNombre());
 						opcion = sca.nextInt();
-						
-						/*switch(opcion){
-							case 1:
-								
-								mSaludEnem = enm1.getSaludAct();
-								
-								enm1.setSaludAct(jug.ataqueEnemigoUno(jug.getNombre(), jug.getNombreAtaque1(), enm1.getSaludAct(), jug.getDanAtaq1()));
-								
-								//cargamos el power del jugador
-								jug.setDanoProducido(mSaludEnem - enm1.getSaludAct());
-								jug.power();
-								
-								break;
-								
-							case 2:
-								
-								mSaludEnem = enm1.getSaludAct();
-								
-								enm1.setSaludAct(jug.ataqueEnemigoDos(jug.getNombre(), jug.getNombreAtaque2(), enm1.getSaludAct(), jug.getDanAtaq2()));
-								
-								//cargamos el power del jugador
-								jug.setDanoProducido(mSaludEnem - enm1.getSaludAct());
-								jug.power();
-								
-								break;
-								
-							case 3:
-								break;
-							case 4:
-								break;
-							case 5:
-								break;
-						}*/
 				
 						if(opcion == 1) {
 							

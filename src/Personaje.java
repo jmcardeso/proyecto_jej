@@ -202,6 +202,20 @@ class Personaje{
 		return saludActJug;
 	}
 	
+	public int ataqueEnemigoUltra(String nomEnem, String nomAtaUltra, int saludActJug, int danoAtaUltra) {
+		numero = (int) (Math.random() * 100);
+		if(numero <= 20) {
+			//Ataque fallido
+			System.out.printf("%s fallo %s ultra\n", nomEnem, nomAtaUltra);
+		}else {
+			//Ataque ultra
+			System.out.printf("%s hizo un ataque ultra\n", nomEnem);
+			saludActJug = saludActJug - danoAtaUltra;
+		}
+		
+		return saludActJug;
+	}
+	
 	//Metodo del ataque ultra
 	public int ultra() {
 		
@@ -292,8 +306,4 @@ class Personaje{
 	public void setDanoRecibido(int danoRecibido) {
 		this.danoRecibido = danoRecibido;
 	}
-
-	
-	
-	
 }
