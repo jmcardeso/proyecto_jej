@@ -3,17 +3,19 @@ package vista;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class PanelPrincipal extends JPanel {
 
-	private String s = "Hola Mundo";
-
 	private static final long serialVersionUID = 7894326737730452505L;
 	Toolkit pantalla = Toolkit.getDefaultToolkit();
-	Image fondoPanelPrincipal = pantalla.getImage("src/Images/fondo.png");
+	Image fondoPanelPrincipal = pantalla.getImage("resources/images/fondo.png");
 
 	/*
 	 * public void paint(Graphics g) { super.paint(g);
@@ -24,12 +26,10 @@ public class PanelPrincipal extends JPanel {
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		g.drawImage(fondoPanelPrincipal, 0, 0, getWidth(), getHeight(), this);
-		// g.drawString(this.s, 100, 100);
 		setOpaque(true);
-
 	}
 
-	public void añadirEtiqueta(String s, int posicionX, int posicionY, int tamanoX, int tamanoY) {
+	public void anadirEtiqueta(String s, int posicionX, int posicionY, int tamanoX, int tamanoY) {
 		JLabel etiqueta = new JLabel(s);
 		etiqueta.setBounds(posicionX, posicionY, tamanoX, tamanoY);
 		etiqueta.setVisible(true);
@@ -38,6 +38,29 @@ public class PanelPrincipal extends JPanel {
 		// etiqueta.font y tal
 
 		this.add(etiqueta);
+		super.repaint();
+	}
+
+	public void anadirBoton(String rutaImagen, String texto, int posicionX, int posicionY, int tamanoX, int tamanoY) {
+		Image img = pantalla.getImage(rutaImagen);
+		JButton botoncito = new JButton(texto);
+		botoncito.setBounds(posicionX, posicionY, tamanoX, tamanoY);
+		botoncito.setIcon(new ImageIcon(img));
+		botoncito.setVisible(true);
+		botoncito.setOpaque(true);
+		botoncito.setContentAreaFilled(false);
+		botoncito.setBorder(null);
+
+		botoncito.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// Aquí va el código que se ejecuta al pulsar el botón. Prueba:
+				System.out.println("Se ha pulsado el botón con imagen en " + rutaImagen);
+			}
+		});
+
+		this.add(botoncito);
+		super.repaint();
+
 	}
 
 }

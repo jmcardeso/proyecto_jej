@@ -33,7 +33,8 @@ public class MarcoPrincipal extends JFrame {
 
 		// Para poner un icono nuevo a la ventana:
 
-		Image miIcono = pantalla.getImage("src/Icons/espadas.png"); // Icon made by [smalllikeart] from www.flaticon.com
+		Image miIcono = pantalla.getImage("resources/images/icons/espadas.png"); // Icon made by [smalllikeart] from
+																					// www.flaticon.com
 		this.setIconImage(miIcono);
 	}
 }

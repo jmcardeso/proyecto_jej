@@ -1,9 +1,16 @@
+## DATOS IMPORTANTES - VISTA
+
+- La ventana principal del juego tiene formato de 16:9, con un tamaño de 1025x576 píxeles. 
+- Aunque el diseño se adapta al tamaño de la pantalla que se esté usando, tenemos que mantener el formato 16:9 y esa resolución, ya que en principio solo se va a ejecutar en nuestros ordenadores y los de clase, con la ventana sin maximizar y sin poder cambiarla de tamaño.
+- Los iconos de habilidades y los sprites de personajes van a tener un tamaño de 64x64 píxeles.
+
+
 # Proyecto JEJ
 Juego de lucha entre alumnos y profesores del IES San Clemente
 
 - Crear un repo :heavy_check_mark:
-- Centrarnos en la pantalla de lucha
-- Mirar a fondo el multihilo
+- Centrarnos en la pantalla de lucha :heavy_check_mark:
+- Mirar a fondo el multihilo 
 - Mirar sprites
 - Sonido y música
 - definir el bucle principal de combate
@@ -11,12 +18,11 @@ Juego de lucha entre alumnos y profesores del IES San Clemente
 - antes de empezar, la conserje explica la historia
 - diseñar un algoritmo de puntuación y guardar las mejores puntuaciones
 - mirar una fuente de texto tipo gameboy
-- investigar cómo imprimir el texto en pantalla
+- investigar cómo imprimir el texto en pantalla :heavy_check_mark:
 
 
 
 ## CLASES
-- una clase jugador y una clase enemigo ambas heredando de una clase "sprite"
 - ide a utilizar: eclipse
 - lenguaje: Java
 - notación: estándar, lowerCamelCase(tm)
