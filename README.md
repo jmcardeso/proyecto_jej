@@ -3,6 +3,8 @@
 - La ventana principal del juego tiene formato de 16:9, con un tamaño de 1025x576 píxeles. 
 - Aunque el diseño se adapta al tamaño de la pantalla que se esté usando, tenemos que mantener el formato 16:9 y esa resolución, ya que en principio solo se va a ejecutar en nuestros ordenadores y los de clase, con la ventana sin maximizar y sin poder cambiarla de tamaño.
 - Los iconos de habilidades y los sprites de personajes van a tener un tamaño de 64x64 píxeles.
+- Los iconos para las habilidades los estamos descargando de: https://www.flaticon.com
+- Los sprites de personaje los vamos a generar en: http://gaurav.munjal.us/Universal-LPC-Spritesheet-Character-Generator/#
 
 
 # Proyecto JEJ
