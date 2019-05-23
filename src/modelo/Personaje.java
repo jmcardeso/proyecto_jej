@@ -3,8 +3,8 @@ package modelo;
 public class Personaje {
 
 	private String nombre, nombreAtaque1, nombreAtaque2, nombreAtaque3, nombreUltra;
-	private int saludAct, saludMax, danAtaq1, danAtaq2, danAtaq3, danUlt, defensa, pocion, ultra, power, puntos;
-	int danoProducido = 0, danoRecibido = 0, pro, rec, numero;
+	private int saludAct, saludMax, danAtaq1, danAtaq2, danAtaq3, danUlt, defensa, pocion, ultra, puntos;
+	int pro, rec, numero;
 	private final int SUMA_CRITICO = 50;
 	private final int RESULTADO_ATAQUE_FALLO = -1;
 	private final int RESULTADO_ATAQUE_NORMAL = 0;
@@ -81,154 +81,90 @@ public class Personaje {
 	}
 
 	// Metodos de los ataques
-
-	// Ataques del jugador, hay un porcentaje de acierto entre un ataque fallido,
-	// normal o critico dado por un numero random
-	public int ataqueJugadorUno(String nomJug, String nomAtaUno, int saludActEne, int danoAtaUno) {
+	public int ataque1(Personaje p) {
 		numero = (int) (Math.random() * 100);
+		int resultado;
 
-		if (numero <= 30) {
+		if (numero < 30) {
 			// Ataque fallido
-			System.out.printf("%s %s fallo %s\n", nomJug, nomAtaUno);
-		} else if (numero <= 60) {
-			// Ataque normal
-			saludActEne = saludActEne - danoAtaUno;
-			System.out.printf("%s realizo ataque %s\n", nomJug, nomAtaUno);
+			resultado = this.RESULTADO_ATAQUE_FALLO;
+		} else if (numero < 80) {
+			// Ataque se ejecuta con normalidad
+			p.setSaludAct(p.getSaludAct() - this.danAtaq1);
+			p.puntosUlti = p.puntosUlti + this.danAtaq1;
+			this.puntosUlti = this.puntosUlti + this.danAtaq1;
+			resultado = this.RESULTADO_ATAQUE_NORMAL;
 		} else {
-			// Ataque critico
-			System.out.printf("%s realizo ataque %s y fue critico\n", nomJug, nomAtaUno);
-			saludActEne = saludActEne - (danoAtaUno + 25);
+			// Ataque crítico
+			p.setSaludAct(p.getSaludAct() - (this.danAtaq1 + SUMA_CRITICO));
+			p.puntosUlti = p.puntosUlti + (this.danAtaq1 + SUMA_CRITICO);
+			this.puntosUlti = this.puntosUlti + (this.danAtaq1 + SUMA_CRITICO);
+			resultado = this.RESULTADO_ATAQUE_CRITICO;
 		}
 
-		return saludActEne;
-	}
+		if (p.getSaludAct() <= 0) {
+			resultado = this.RESULTADO_ATAQUE_OBJETIVOMUERE;
+		}
 
-	public int ataqueJugadorDos(String nomJug, String nomAtaDos, int saludActEne, int danoAtaDos) {
+		return resultado;
+	}
+	
+	public int ataque2(Personaje p) {
 		numero = (int) (Math.random() * 100);
+		int resultado;
 
-		if (numero <= 30) {
+		if (numero < 30) {
 			// Ataque fallido
-			System.out.printf("%s %s fallo %s\n", nomJug, nomAtaDos);
-		} else if (numero <= 60) {
-			// Ataque normal
-			saludActEne = saludActEne - danoAtaDos;
-			System.out.printf("%s realizo ataque %s\n", nomJug, nomAtaDos);
+			resultado = this.RESULTADO_ATAQUE_FALLO;
+		} else if (numero < 80) {
+			// Ataque se ejecuta con normalidad
+			p.setSaludAct(p.getSaludAct() - this.danAtaq2);
+			p.puntosUlti = p.puntosUlti + this.danAtaq2;
+			this.puntosUlti = this.puntosUlti + this.danAtaq2;
+			resultado = this.RESULTADO_ATAQUE_NORMAL;
 		} else {
-			// Ataque critico
-			System.out.printf("%s realizo ataque %s y fue critico\n", nomJug, nomAtaDos);
-			saludActEne = saludActEne - (danoAtaDos + 25);
+			// Ataque crítico
+			p.setSaludAct(p.getSaludAct() - (this.danAtaq2 + SUMA_CRITICO));
+			p.puntosUlti = p.puntosUlti + (this.danAtaq2 + SUMA_CRITICO);
+			this.puntosUlti = this.puntosUlti + (this.danAtaq2 + SUMA_CRITICO);
+			resultado = this.RESULTADO_ATAQUE_CRITICO;
 		}
 
-		return saludActEne;
-	}
+		if (p.getSaludAct() <= 0) {
+			resultado = this.RESULTADO_ATAQUE_OBJETIVOMUERE;
+		}
 
-	public int ataqueJugadorTres(String nomJug, String nomAtaTres, int saludActEne, int danoAtaTres) {
+		return resultado;
+	}
+	
+	public int ataque3(Personaje p) {
 		numero = (int) (Math.random() * 100);
+		int resultado;
 
-		if (numero <= 30) {
+		if (numero < 30) {
 			// Ataque fallido
-			System.out.printf("%s %s fallo %s\n", nomJug, nomAtaTres);
-		} else if (numero <= 60) {
-			// Ataque normal
-			saludActEne = saludActEne - danoAtaTres;
-			System.out.printf("%s realizo ataque %s\n", nomJug, nomAtaTres);
+			resultado = this.RESULTADO_ATAQUE_FALLO;
+		} else if (numero < 80) {
+			// Ataque se ejecuta con normalidad
+			p.setSaludAct(p.getSaludAct() - this.danAtaq3);
+			p.puntosUlti = p.puntosUlti + this.danAtaq3;
+			this.puntosUlti = this.puntosUlti + this.danAtaq3;
+			resultado = this.RESULTADO_ATAQUE_NORMAL;
 		} else {
-			// Ataque critico
-			System.out.printf("%s realizo ataque %s y fue critico\n", nomJug, nomAtaTres);
-			saludActEne = saludActEne - (danoAtaTres + 25);
+			// Ataque crítico
+			p.setSaludAct(p.getSaludAct() - (this.danAtaq3 + SUMA_CRITICO));
+			p.puntosUlti = p.puntosUlti + (this.danAtaq3 + SUMA_CRITICO);
+			this.puntosUlti = this.puntosUlti + (this.danAtaq3 + SUMA_CRITICO);
+			resultado = this.RESULTADO_ATAQUE_CRITICO;
 		}
 
-		return saludActEne;
-	}
-
-	public int ataqueJugadorUltra(String nomJug, String nomAtaUltra, int saludActEne, int danoAtaUltra) {
-		numero = (int) (Math.random() * 100);
-		if (numero <= 20) {
-			// Ataque fallido
-			System.out.printf("%s fallo %s ultra\n", nomJug, nomAtaUltra);
-		} else {
-			// Ataque ultra
-			System.out.printf("%s hizo un ataque ultra\n", nomJug);
-			saludActEne = saludActEne - danoAtaUltra;
+		if (p.getSaludAct() <= 0) {
+			resultado = this.RESULTADO_ATAQUE_OBJETIVOMUERE;
 		}
 
-		return saludActEne;
+		return resultado;
 	}
-
-	// Ataques de enemigos, hay un porcentaje de acierto entre un ataque fallido,
-	// normal o critico dado por un numero random
-	public int ataqueEnemigoUno(String nombreEne, String nombreAtaUnoEne, int saludActJug, int danoAtaqUnoEn) {
-		numero = (int) (Math.random() * 100);
-
-		if (numero <= 30) {
-			// Ataque fallido
-			System.out.printf("%s fallo %s\n", nombreEne, nombreAtaUnoEne);
-		} else if (numero <= 60) {
-			// Ataque normal
-			saludActJug = saludActJug - danoAtaqUnoEn;
-			System.out.printf("%s realizo ataque %s\n", nombreEne, nombreAtaUnoEne);
-		} else {
-			// Ataque critico
-			System.out.printf("%s realizo ataque %s y fue critico\n", nombreEne, nombreAtaUnoEne);
-			saludActJug = saludActJug - (danoAtaqUnoEn + 25);
-		}
-
-		return saludActJug;
-	}
-
-	public int ataqueEnemigoDos(String nombreEne, String nombreAtaDosEne, int saludActJug, int danoAtaqDosEn) {
-
-		numero = (int) (Math.random() * 100);
-
-		if (numero <= 30) {
-			// Ataque fallido
-			System.out.printf("%s fallo %s\n", nombreEne, nombreAtaDosEne);
-		} else if (numero <= 60) {
-			// Ataque normal
-			saludActJug = saludActJug - danoAtaqDosEn;
-			System.out.printf("%s realizo ataque %s\n", nombreEne, nombreAtaDosEne);
-		} else {
-			// Ataque critico
-			System.out.printf("%s realizo ataque %s y fue critico\n", nombreEne, nombreAtaDosEne);
-			saludActJug = saludActJug - (danoAtaqDosEn + 25);
-		}
-
-		return saludActJug;
-	}
-
-	public int ataqueEnemigoTres(String nombreEne, String nombreAtaTresEne, int saludActJug, int danoAtaqTresEn) {
-		numero = (int) (Math.random() * 90);
-
-		if (numero <= 30) {
-			// Ataque fallido
-			System.out.printf("%s fallo %s\n", nombreEne, nombreAtaTresEne);
-		} else if (numero <= 60) {
-			// Ataque normal
-			saludActJug = saludActJug - danoAtaqTresEn;
-			System.out.printf("%s realizo ataque %s\n", nombreEne, nombreAtaTresEne);
-		} else {
-			// Ataque critico
-			System.out.printf("%s realizo ataque %s y fue critico\n", nombreEne, nombreAtaTresEne);
-			saludActJug = saludActJug - (danoAtaqTresEn + 25);
-		}
-
-		return saludActJug;
-	}
-
-	public int ataqueEnemigoUltra(String nomEnem, String nomAtaUltra, int saludActJug, int danoAtaUltra) {
-		numero = (int) (Math.random() * 100);
-		if (numero <= 20) {
-			// Ataque fallido
-			System.out.printf("%s fallo %s ultra\n", nomEnem, nomAtaUltra);
-		} else {
-			// Ataque ultra
-			System.out.printf("%s hizo un ataque ultra\n", nomEnem);
-			saludActJug = saludActJug - danoAtaUltra;
-		}
-
-		return saludActJug;
-	}
-
+	
 	// Metodo del ataque ultra
 	public int ataqueUltra(Personaje p) {
 		numero = (int) (Math.random() * 100);
@@ -252,13 +188,6 @@ public class Personaje {
 		return resultado;
 	}
 
-	// Metodo power
-	public void power() {
-		pro += danoProducido;
-		rec += danoRecibido;
-		power += danoProducido * 0.30 + danoRecibido * 0.15;
-	}
-
 	// Getters
 	public int getSaludAct() {
 		return saludAct;
@@ -266,18 +195,6 @@ public class Personaje {
 
 	public String getNombre() {
 		return nombre;
-	}
-
-	public int getDanoRecibido() {
-		return danoRecibido;
-	}
-
-	public int getPower() {
-		return power;
-	}
-
-	public int getDanoProducido() {
-		return danoProducido;
 	}
 
 	public int getDanAtaq1() {
@@ -319,41 +236,5 @@ public class Personaje {
 	// Setters
 	public void setSaludAct(int saludAct) {
 		this.saludAct = saludAct;
-	}
-
-	public void setDanoProducido(int i) {
-		this.danoProducido = this.danoProducido + i;
-	}
-
-	public void setDanoRecibido(int danoRecibido) {
-		this.danoRecibido = danoRecibido;
-	}
-
-	public int ataque1(Personaje p) {
-		numero = (int) (Math.random() * 100);
-		int resultado;
-
-		if (numero < 30) {
-			// Ataque fallido
-			resultado = this.RESULTADO_ATAQUE_FALLO;
-		} else if (numero < 80) {
-			// Ataque se ejecuta con normalidad
-			p.setSaludAct(p.getSaludAct() - this.danAtaq1);
-			p.puntosUlti = p.puntosUlti + this.danAtaq1;
-			this.puntosUlti = this.puntosUlti + this.danAtaq1;
-			resultado = this.RESULTADO_ATAQUE_NORMAL;
-		} else {
-			// Ataque crítico
-			p.setSaludAct(p.getSaludAct() - (this.danAtaq1 + SUMA_CRITICO));
-			p.puntosUlti = p.puntosUlti + (this.danAtaq1 + SUMA_CRITICO);
-			this.puntosUlti = this.puntosUlti + (this.danAtaq1 + SUMA_CRITICO);
-			resultado = this.RESULTADO_ATAQUE_CRITICO;
-		}
-
-		if (p.getSaludAct() <= 0) {
-			resultado = this.RESULTADO_ATAQUE_OBJETIVOMUERE;
-		}
-
-		return resultado;
 	}
 }
