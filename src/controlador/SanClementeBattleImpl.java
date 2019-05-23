@@ -1,10 +1,11 @@
 package controlador;
 
+import modelo.Personaje;
+
 public class SanClementeBattleImpl {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		Personaje jugador = new Personaje("pepito", 10, 12, "sss", 34, "dsdsd", 45, "fdfdf", 56, "fdfdf", 34);
 	}
 
 }

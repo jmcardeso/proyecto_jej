@@ -8,8 +8,8 @@ public class UsoHilos {
 		frame.lblPrincipal.setText("Hilo principal iniciado.");
 
 		// Primero, construye un objeto MiHilo.
-		MiHilo mh = new MiHilo("#1", frame.lblHilo1);
-		MiHilo mh2 = new MiHilo("#2", frame.lblHilo2);
+		HiloPelota mh = new HiloPelota("#1", frame.lblHilo1);
+		HiloPelota mh2 = new HiloPelota("#2", frame.lblHilo2);
 		// Luego, construye un hilo de ese objeto.
 		Thread nuevoh = new Thread(mh);
 		Thread nuevoh2 = new Thread(mh2);

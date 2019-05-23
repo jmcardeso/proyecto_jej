@@ -20,7 +20,7 @@ public class Personaje {
 	// (dano echo - dano recibido) * numero de enemigos
 
 	// Constructos clase personaje
-	Personaje(String nombre, int saludMax, int defensa, String nomAtaq1, int danAtaq1, String nomAtaq2, int danAtaq2,
+	public Personaje(String nombre, int saludMax, int defensa, String nomAtaq1, int danAtaq1, String nomAtaq2, int danAtaq2,
 			String nomAtaq3, int danAtaq3, String nomUlt, int danUltra) {
 
 		this.nombre = nombre;
