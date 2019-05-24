@@ -27,7 +27,7 @@ public class MarcoPrincipal extends JFrame {
 		this.setSize(anchoVentana, altoVentana);
 		this.setLocation(((anchoPantalla / 2) - (anchoVentana / 2)), (altoPantalla / 2) - (altoVentana / 2));
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setTitle("Síndrome de DAW - by JEJ");
+		this.setTitle("San Clemente Battle [Beta] - by JEJ");
 		this.setVisible(true);
 		this.setResizable(false);
 

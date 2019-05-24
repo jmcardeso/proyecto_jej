@@ -1,9 +1,6 @@
-<<<<<<< HEAD
-/modelo/
-/controlador/
-=======
-/controlador/
-/modelo/
-/sonido2.wav
 /vista/
->>>>>>> c5662e3c31a0a4e78ba878aa21c933df9c5ad538
+/controlador/
+/images/
+/musica.wav
+/sonido2.wav
+/modelo/

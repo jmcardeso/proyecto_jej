@@ -23,8 +23,9 @@ public class PanelPrincipal extends JPanel {
 		setOpaque(true);
 	}
 
-	public void anadirEtiqueta(JLabel etiqueta, String s, int posicionX, int posicionY, int tamanoX, int tamanoY) {
-		etiqueta = new JLabel(s);
+	public JLabel anadirEtiqueta(JLabel etiqueta, String s, int posicionX, int posicionY, int tamanoX, int tamanoY) {
+		//etiqueta = new JLabel(s);
+		etiqueta.setText(s);
 		etiqueta.setBounds(posicionX, posicionY, tamanoX, tamanoY);
 		etiqueta.setVisible(true);
 		etiqueta.setOpaque(false);
@@ -35,6 +36,7 @@ public class PanelPrincipal extends JPanel {
 
 		this.add(etiqueta);
 		super.repaint();
+		return etiqueta;
 	}
 
 	public void ocultarEtiqueta(JLabel etiqueta) {
@@ -42,7 +44,7 @@ public class PanelPrincipal extends JPanel {
 		super.repaint();
 	}
 
-	public void anadirBoton(String rutaImagen, String texto, int posicionX, int posicionY, int tamanoX, int tamanoY) {
+	public JButton anadirBoton(String rutaImagen, String texto, int posicionX, int posicionY, int tamanoX, int tamanoY) {
 		Image img = pantalla.getImage(rutaImagen);
 		JButton botoncito = new JButton(texto);
 		botoncito.setBounds(posicionX, posicionY, tamanoX, tamanoY);
@@ -52,19 +54,13 @@ public class PanelPrincipal extends JPanel {
 		botoncito.setContentAreaFilled(false);
 		botoncito.setBorder(null);
 
-		botoncito.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				// Aquí hay que ejecutar el método ATAQUE y el método para la animación. Prueba:
-				System.out.println("Se ha pulsado el botón con imagen en " + rutaImagen);
-			}
-		});
-
 		this.add(botoncito);
 		super.repaint();
+		return botoncito;
 
 	}
 
-	public void anadirPersonaje(String rutaImagen, String nombrePersonaje, int posicionX, int posicionY, int tamanoX,
+	public JButton anadirPersonaje(String rutaImagen, String nombrePersonaje, int posicionX, int posicionY, int tamanoX,
 			int tamanoY, int vidaPersonaje) {
 		Image img = pantalla.getImage(rutaImagen);
 		JButton botoncito = new JButton();
@@ -75,9 +71,6 @@ public class PanelPrincipal extends JPanel {
 		botoncito.setContentAreaFilled(false);
 		botoncito.setBorder(null);
 
-		JLabel etiqueta = new JLabel();
-
-		anadirEtiqueta(etiqueta, nombrePersonaje, posicionX + 60, (posicionY - 40), 200, 100);
 
 		botoncito.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -85,7 +78,7 @@ public class PanelPrincipal extends JPanel {
 				// parámetro es un string que concatena el nombre del personaje con sus puntos
 				// de vida
 				// etiqueta.setVisible(false);
-				anadirEtiqueta(etiqueta, new String(new char[nombrePersonaje.length() + 4]).replace("\0", " ") + ": "
+				anadirEtiqueta(new JLabel(), new String(new char[nombrePersonaje.length() + 4]).replace("\0", " ") + ": "
 						+ Integer.toString(vidaPersonaje) + "HP", posicionX + 70, (posicionY - 40), 200, 100);
 
 			}
@@ -93,7 +86,7 @@ public class PanelPrincipal extends JPanel {
 
 		this.add(botoncito);
 		super.repaint();
-
+		return botoncito;
 	}
-
+	
 }

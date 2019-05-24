@@ -1,6 +1,7 @@
 package controlador;
 
 import java.io.BufferedInputStream;
+import java.io.FileInputStream;
 import java.io.InputStream;
 
 import javax.sound.sampled.AudioInputStream;
@@ -16,13 +17,13 @@ public class HiloSonido implements Runnable {
 	String fichero;
 
 	HiloSonido(String fichero) {
-		this.fichero = fichero;
+		this.fichero = "resources/" + fichero;
 	}
 
 	public void run() {
 		try {
 			// read audio data from whatever source (file/classloader/etc.)
-			InputStream audioSrc = getClass().getResourceAsStream(fichero);
+			InputStream audioSrc = new FileInputStream(fichero);
 			// add buffer for mark/reset support
 			InputStream bufferedIn = new BufferedInputStream(audioSrc);
 			AudioInputStream aus = AudioSystem.getAudioInputStream(bufferedIn);
