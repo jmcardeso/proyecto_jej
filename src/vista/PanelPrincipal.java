@@ -16,11 +16,15 @@ public class PanelPrincipal extends JPanel {
 	private static final long serialVersionUID = 7894326737730452505L;
 	Toolkit pantalla = Toolkit.getDefaultToolkit();
 	Image fondoPanelPrincipal = pantalla.getImage("resources/images/fondo.png");
-
+	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		g.drawImage(fondoPanelPrincipal, 0, 0, getWidth(), getHeight(), this);
 		setOpaque(true);
+	}
+	
+	public void repinta() {
+		super.repaint();
 	}
 
 	public JLabel anadirEtiqueta(JLabel etiqueta, String s, int posicionX, int posicionY, int tamanoX, int tamanoY) {

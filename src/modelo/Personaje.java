@@ -12,7 +12,7 @@ public class Personaje {
 	private final int RESULTADO_ATAQUE_OBJETIVOMUERE = -10;
 	private final int PUNTOS_NECESARIOS_ULTI = 200;
 	private int puntosUlti = 0;
-
+	
 	// Constante salud
 	private static int SALUD_MAX = 500;
 	// Metodo para almacenar los puntos logrados en la partida
@@ -64,20 +64,14 @@ public class Personaje {
 	// Si tu vida esta entre el 1 % y el 20 %:
 	// (vida actual * 1.2) + vida actual -> 120 %
 	public int pocion(int salud) {
-
-		if (salud >= this.saludMax) {
-			return this.saludMax;
-		} else if (salud >= this.saludMax * 0.70) {
-			return (int) (Math.round(salud * 0.25));
-		} else if (salud >= this.saludMax * 0.45) {
-			return (int) (Math.round(salud * 0.50));
-		} else if (salud >= this.saludMax * 0.20) {
-			return salud;
-		} else if (salud > 0) {
-			return (int) (Math.round(salud * 1.2));
-		} else {
-			return -1;
-		}
+		return 25;
+		/*
+		 * if (salud >= this.saludMax) { return this.saludMax; } else if (salud >=
+		 * this.saludMax * 0.70) { return (int) (Math.round(salud * 0.25)); } else if
+		 * (salud >= this.saludMax * 0.45) { return (int) (Math.round(salud * 0.50)); }
+		 * else if (salud >= this.saludMax * 0.20) { return salud; } else if (salud > 0)
+		 * { return (int) (Math.round(salud * 1.2)); } else { return -1; }
+		 */
 	}
 
 	// Metodos de los ataques
@@ -88,20 +82,20 @@ public class Personaje {
 		if (numero < 30) {
 			// Ataque fallido
 			resultado = this.RESULTADO_ATAQUE_FALLO;
-		} else if (numero < 80) {
-			// Ataque se ejecuta con normalidad
-			p.setSaludAct(p.getSaludAct() - this.danAtaq1);
-			p.puntosUlti = p.puntosUlti + this.danAtaq1;
-			this.puntosUlti = this.puntosUlti + this.danAtaq1;
-			resultado = this.RESULTADO_ATAQUE_NORMAL;
 		} else {
-			// Ataque crítico
-			p.setSaludAct(p.getSaludAct() - (this.danAtaq1 + SUMA_CRITICO));
-			p.puntosUlti = p.puntosUlti + (this.danAtaq1 + SUMA_CRITICO);
-			this.puntosUlti = this.puntosUlti + (this.danAtaq1 + SUMA_CRITICO);
-			resultado = this.RESULTADO_ATAQUE_CRITICO;
-		}
-
+			p.setSaludAct(p.getSaludAct()-this.danAtaq1);
+			// Ataque se ejecuta con normalidad
+			/*
+			 * p.setSaludAct(p.getSaludAct() - this.danAtaq1); p.puntosUlti = p.puntosUlti +
+			 * this.danAtaq1; this.puntosUlti = this.puntosUlti + this.danAtaq1;
+			 */
+			resultado = this.RESULTADO_ATAQUE_NORMAL;
+		} /*
+			 * else { // Ataque crítico p.setSaludAct(p.getSaludAct() - (this.danAtaq1 +
+			 * SUMA_CRITICO)); p.puntosUlti = p.puntosUlti + (this.danAtaq1 + SUMA_CRITICO);
+			 * this.puntosUlti = this.puntosUlti + (this.danAtaq1 + SUMA_CRITICO); resultado
+			 * = this.RESULTADO_ATAQUE_CRITICO; }
+			 */
 		if (p.getSaludAct() <= 0) {
 			resultado = this.RESULTADO_ATAQUE_OBJETIVOMUERE;
 		}
@@ -116,7 +110,7 @@ public class Personaje {
 		if (numero < 30) {
 			// Ataque fallido
 			resultado = this.RESULTADO_ATAQUE_FALLO;
-		} else if (numero < 80) {
+		} else if (numero >= 30 && numero < 80) {
 			// Ataque se ejecuta con normalidad
 			p.setSaludAct(p.getSaludAct() - this.danAtaq2);
 			p.puntosUlti = p.puntosUlti + this.danAtaq2;
@@ -144,7 +138,7 @@ public class Personaje {
 		if (numero < 30) {
 			// Ataque fallido
 			resultado = this.RESULTADO_ATAQUE_FALLO;
-		} else if (numero < 80) {
+		} else if (numero >= 30 && numero < 80) {
 			// Ataque se ejecuta con normalidad
 			p.setSaludAct(p.getSaludAct() - this.danAtaq3);
 			p.puntosUlti = p.puntosUlti + this.danAtaq3;
@@ -233,6 +227,10 @@ public class Personaje {
 		return danUlt;
 	}
 
+	
+	public int getSaludMax() {
+		return saludMax;
+	}
 	// Setters
 	public void setSaludAct(int saludAct) {
 		this.saludAct = saludAct;
