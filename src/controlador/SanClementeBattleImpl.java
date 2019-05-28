@@ -26,7 +26,7 @@ public class SanClementeBattleImpl {
 	static boolean botonActivo = true;
 
 	public static void main(String[] args) {
-
+		
 		PanelPrincipal tapiz = new PanelPrincipal();
 		tapiz.setLayout(null); // Para que no se descoloquen los componentes (AbsoluteLayout)
 
