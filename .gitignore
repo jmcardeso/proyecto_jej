@@ -1,3 +1,5 @@
 desktop.ini
 bin/*
-
+.settings/*
+.classpath
+.project
