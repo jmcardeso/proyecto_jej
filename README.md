@@ -10,7 +10,7 @@ Juego de lucha entre alumnos y profesores del IES San Clemente
 - Crear un repo :heavy_check_mark:
 - Centrarnos en la pantalla de lucha :heavy_check_mark:
 - Mirar el multihilo :heavy_check_mark:
-- Mirar sprites
+- Mirar sprites :heavy_check_mark:
 - Sonido y música :heavy_check_mark:
 - definir el bucle principal de combate :heavy_check_mark:
 - cuando el personaje vence, se va del escenario, hay un fundido y aparece el nuevo escenario
