@@ -6,6 +6,8 @@ Juego de lucha entre alumnos y profesores del IES San Clemente
 
 **Librerías usadas:** AWT, Swing, IO, JavaX.Sound.Sampled, com.Sun.media.Sound, Thread e interfaz Runnable
 
+![Imagen de SCB](/img/SCB.png)
+
 ## To-Do
 - Crear un repo :heavy_check_mark:
 - Centrarnos en la pantalla de lucha :heavy_check_mark:
